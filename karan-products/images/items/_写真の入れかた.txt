@@ -1,0 +1,11 @@
+【Karan Products｜作品の写真】
+
+  images/items/01/01.jpg   ← No.01 の1枚目（一覧のサムネイル）
+  images/items/01/02.jpg   ← No.01 の2枚目
+  images/items/02/01.jpg   ← No.02 の1枚目
+  …
+
+番号は _data/items.json に書いた順に、上から No.01, No.02 … と自動で付きます。
+写真を入れたら、karan-products フォルダで次を実行してください。
+
+  python3 _tools/build_items.py

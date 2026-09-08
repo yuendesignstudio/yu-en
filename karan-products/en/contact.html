@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Karan Products</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Karan Products</a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="items.html">Shop</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li class="lang-switch">
+            <a href="../contact.html">JP</a>
+            <span style="color:var(--light)">/</span>
+            <a href="contact.html" class="current">EN</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-top">
+    <div class="page-top-inner">
+      <p class="hero-label">Contact</p>
+      <h1 class="page-title">Get in Touch</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="form-wrap">
+      <p class="concept-text" style="margin-bottom: 40px;">
+        Every piece is made to order, one at a time — prices are individually quoted.<br>
+        Let us know which piece you're interested in, and any size or material preferences.<br>
+        We reply within 2–3 business days.
+      </p>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">— Select —</option>
+            <option>I'd like to order a piece</option>
+            <option>Product enquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="item">Piece you're interested in (optional)</label>
+          <input type="text" id="item" name="item" placeholder="e.g. Piece 01" />
+        </div>
+        <div class="form-group">
+          <label for="size">Preferred size / material / use (optional)</label>
+          <input type="text" id="size" name="size" placeholder="e.g. approx. 120cm wide, for the living room" />
+        </div>
+        <div class="form-group">
+          <label for="budget">Budget range (optional)</label>
+          <input type="text" id="budget" name="budget" placeholder="e.g. around ¥30,000" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Karan Products</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal Notice</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Karan Products</p>
+    </div>
+  </footer>
+
+</body>
+</html>

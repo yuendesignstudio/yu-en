@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Items — Karan Products</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Karan Products</a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="items.html" class="active">Shop</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="lang-switch">
+            <a href="../items.html">JP</a>
+            <span style="color:var(--light)">/</span>
+            <a href="items.html" class="current">EN</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-top">
+    <div class="page-top-inner">
+      <p class="hero-label">Shop</p>
+      <h1 class="page-title">All Items</h1>
+      <p class="concept-text" style="margin-top:20px;">
+        All pieces are made to order, one at a time. Prices are not listed —<br>
+        each is individually quoted. Feel free to reach out about any piece.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="filter-row">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Kitchen</button>
+      <button class="filter-btn">Living</button>
+      <button class="filter-btn">Textile</button>
+    </div>
+
+    <p class="item-count" style="margin-top: 16px;">0 items</p>
+
+    <div class="product-grid">
+      <div class="empty-state" style="grid-column:1/-1">
+        Coming soon.
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Karan Products</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal Notice</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Karan Products</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

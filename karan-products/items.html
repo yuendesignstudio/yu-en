@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>商品一覧 — Karan Products</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Karan Products</a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="items.html" class="active">商品一覧</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+          <li class="lang-switch">
+            <a href="items.html" class="current">JP</a>
+            <span style="color:var(--light)">/</span>
+            <a href="en/items.html">EN</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-top">
+    <div class="page-top-inner">
+      <p class="hero-label">商品一覧</p>
+      <h1 class="page-title">All Items</h1>
+      <p class="concept-text" style="margin-top:20px;">
+        すべて受注生産・一点ものです。価格は掲載しておらず、個別のお見積りとなります。<br>
+        気になる家具がありましたら、お気軽にご相談ください。
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="filter-row">
+      <button class="filter-btn active" data-cat="">すべて</button>
+      <button class="filter-btn" data-cat="古材の一点もの">古材の一点もの</button>
+      <button class="filter-btn" data-cat="受注制作の家具">受注制作の家具</button>
+    </div>
+
+    <p class="item-count" style="margin-top: 16px;">0 件</p>
+
+    <div class="product-grid">
+      <div class="empty-state" style="grid-column:1/-1">準備中です。</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Karan Products</div>
+      <div class="footer-links">
+        <a href="tokushoho.html">特定商取引法</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Karan Products</p>
+    </div>
+  </footer>
+
+  <script>
+    // 絞り込み。トップの「List →」から ?cat=... で来たときも効く
+    function apply(cat){
+      document.querySelectorAll('.filter-btn').forEach(b =>
+        b.classList.toggle('active', (b.dataset.cat || '') === cat));
+      var n = 0;
+      document.querySelectorAll('.product-card').forEach(c => {
+        var show = !cat || c.dataset.cat === cat;
+        c.style.display = show ? '' : 'none';
+        if (show) n++;
+      });
+      var cnt = document.querySelector('.item-count');
+      if (cnt) cnt.textContent = n + ' 件';
+    }
+    document.querySelectorAll('.filter-btn').forEach(btn =>
+      btn.addEventListener('click', () => apply(btn.dataset.cat || '')));
+    apply(new URLSearchParams(location.search).get('cat') || '');
+  </script>
+</body>
+</html>

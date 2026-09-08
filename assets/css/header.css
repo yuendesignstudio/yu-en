@@ -1,0 +1,85 @@
+/* ==========================================================
+   YU-EN Design Studio ｜ 共通ヘッダー（2026-09-08）
+   すべてのページで同じ見た目・同じ並びにするための1枚。
+   各ページのCSSより「後に」読み込んでください。
+   ========================================================== */
+
+/* 各ページが持っている古い header 指定を打ち消してから組み直す
+   （studio.html などに header{display:flex;padding:20px 32px} が残っているため） */
+.site-header{
+  display:block !important; padding:0 !important; height:auto !important;
+  justify-content:initial !important; align-items:initial !important;
+  position:sticky; top:0; left:0; width:100%; z-index:60;
+  background:rgba(246,242,234,.94);
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  border-bottom:1px solid #E2DBCE;
+}
+/* 名乗りは左端、メニューと言語は右端に寄せる（2026-09-08） */
+.site-header .header-inner{
+  max-width:none !important; margin:0 !important; height:auto !important;
+  padding:16px 34px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.site-header .header-right{
+  display:flex; align-items:center; gap:40px;   /* メニューと JP/EN の間 */
+}
+
+/* 左：名乗り */
+.site-header .logo{
+  display:flex; flex-direction:column; align-items:flex-start;
+  line-height:1; gap:0; text-decoration:none; color:#26231F;
+}
+.site-header .logo .logo-ja{
+  font-family:var(--font, sans-serif);
+  font-size:1.3rem; font-weight:400; letter-spacing:.18em; color:#26231F;
+}
+.site-header .logo .logo-en{
+  font-family:var(--font, sans-serif);
+  font-size:.56rem; font-weight:400; font-style:normal;
+  letter-spacing:.34em; color:#6B655C; margin-top:5px;
+}
+
+/* 中央：メニュー */
+.site-header .site-nav{ margin:0; }
+.site-header .site-nav ul{
+  display:flex; align-items:center; gap:30px; list-style:none; margin:0; padding:0;
+}
+.site-header .site-nav a{
+  font-family:var(--font, sans-serif);
+  font-size:.78rem; letter-spacing:.12em; color:#6B655C;
+  text-decoration:none; transition:color .3s;
+}
+.site-header .site-nav a:hover{ color:#26231F; }
+
+/* 右：言語 */
+.site-header .lang-switch{
+  display:flex; align-items:center; gap:6px;
+  font-family:var(--font, sans-serif); font-size:.7rem; letter-spacing:.1em;
+}
+.site-header .lang-btn{ color:#6B655C; text-decoration:none; transition:color .3s; }
+.site-header .lang-btn:hover{ color:#26231F; }
+.site-header .lang-btn--active{ color:#26231F; }
+.site-header .lang-sep{ color:#C9C2B7; }
+
+/* ハンバーガーは使わない（項目が4つなので、そのまま並べる） */
+.site-header .nav-toggle{ display:none !important; }
+
+@media (max-width:900px){
+  .site-header .header-inner{ padding:13px 22px; gap:14px; }
+  .site-header .site-nav ul{ gap:20px; }
+  .site-header .site-nav a{ font-size:.72rem; letter-spacing:.08em; }
+}
+@media (max-width:640px){
+  .site-header .header-inner{
+    flex-direction:column; align-items:flex-start; padding:12px 18px; gap:10px;
+  }
+  .site-header .header-right{ width:100%; justify-content:space-between; gap:16px; }
+  .site-header .site-nav ul{ gap:18px; }
+  .site-header .logo .logo-ja{ font-size:1.14rem; }
+  .site-header .logo .logo-en{ font-size:.5rem; letter-spacing:.26em; }
+  .site-header .site-nav a{ font-size:.7rem; }
+}
+
+/* 見出しを外したぶん、作品一覧の上を少しだけ空ける（works-top-space） */
+.works .section-inner{ padding-top:48px; }
+@media (max-width:640px){ .works .section-inner{ padding-top:28px; } }
