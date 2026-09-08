@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YU-EN Design Studio ｜ Architecture to Tend &amp; Love</title>
+<meta name="description" content="YU-EN Design Studio designs architecture made to be tended and loved for a long time. Like befriending a gentle giant. By Ayato Hokkyo, an architect living above a public bathhouse in Tokyo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ★ 筑紫ゴシックのWebフォント（Adobe Fonts）を使う場合は、ここに kit の1行を貼ってください -->
+<!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+  /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
+  --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+
+    --paper:#F6F2EA; --paper-2:#EFE9DD; --ink:#26231F; --ink-soft:#6B655C;
+    --accent:#F2C9A5; --accent-ink:#A05F26; --line:#E2DBCE; --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--paper);
+    font-weight:300;line-height:1.95;letter-spacing:.01em;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,.serif{font-family:var(--font);font-weight:500}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+  .label{font-family:var(--font);font-size:.84rem;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--ink-soft)}
+
+  header{position:fixed;top:0;left:0;width:100%;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;padding:20px 32px;transition:background .5s}
+  header.solid{background:rgba(246,242,234,.88);backdrop-filter:blur(8px)}
+  .word{display:flex;flex-direction:column;line-height:1}
+  .word .ja{font-family:var(--font);font-size:1.3rem;letter-spacing:.18em}
+  .word .la{font-family:var(--font);font-weight:400;font-size:.56rem;letter-spacing:.34em;
+    color:var(--ink-soft);margin-top:5px}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:.78rem;letter-spacing:.14em;align-items:center;
+    font-family:var(--font)}
+  nav a{color:var(--ink-soft);transition:color .4s} nav a:hover{color:var(--ink)}
+
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('../images/brand/yuen-header.jpg') center/cover;opacity:.06}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(246,242,234,.5),var(--paper) 82%)}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:56px;padding-bottom:80px;
+    display:grid;grid-template-columns:1.05fr .8fr;gap:56px;align-items:center}
+  .hero .label{margin-bottom:30px}
+  .hero h1{font-family:var(--font);font-size:clamp(2.4rem,6vw,4rem);font-weight:500;
+    line-height:1.25;letter-spacing:.02em}
+  .hero p.lead{margin-top:30px;max-width:28em;font-size:1rem;color:var(--ink-soft)}
+  .hero .en-line{margin-top:34px;font-family:var(--font);font-size:1rem;color:var(--accent-ink);letter-spacing:.08em}
+  .hero-figure{position:relative;margin:0;aspect-ratio:3/4;background:var(--paper-2);
+    border:1px solid var(--line);overflow:hidden}
+  .hero-figure img{width:100%;height:100%;object-fit:cover}
+  .hero-figure figcaption{position:absolute;left:0;bottom:0;font-family:var(--font);
+    font-style:italic;font-size:.85rem;letter-spacing:.06em;color:var(--paper);
+    background:rgba(38,35,31,.55);padding:8px 14px;margin:14px}
+
+  section{padding:118px 0;border-top:1px solid var(--line)}
+  .sec-label{display:flex;align-items:baseline;gap:16px;margin-bottom:52px}
+  .sec-label .num{font-family:var(--font);font-size:1rem;color:var(--accent-ink)}
+  .sec-label h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:500;letter-spacing:.03em}
+
+  .philo .cols{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .philo blockquote{font-family:var(--font);font-weight:400;
+    font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.6;letter-spacing:.01em}
+  .philo blockquote em{font-style:italic;color:var(--accent-ink)}
+  .philo .body{font-size:.98rem;color:var(--ink-soft);line-height:1.95}
+  .philo .body strong{font-weight:400;color:var(--ink)}
+  .kw{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:28px;font-family:var(--font);
+    font-style:italic;font-size:1rem;color:var(--ink-soft)}
+  .kw span::before{content:"— "}
+
+  .works .item{display:grid;grid-template-columns:130px 1fr auto;gap:32px;align-items:center;
+    padding:28px 8px;border-bottom:1px solid var(--line);transition:background .4s}
+  .works .item:first-child{border-top:1px solid var(--line)}
+  .works .item:hover{background:var(--paper-2)}
+  .works .plate{width:130px;height:92px;overflow:hidden;background:var(--paper-2);border:1px solid var(--line)}
+  .works .plate img{width:100%;height:100%;object-fit:cover;filter:saturate(.82)}
+  .works .plate .tone{width:100%;height:100%}
+  .t-yuge{background:linear-gradient(135deg,#7FAAB0,#4E7883)}
+  .t-thesis{background:linear-gradient(135deg,#8B97A0,#57626B)}
+  .t-shinjuku{background:linear-gradient(135deg,#B0A187,#7C6C50)}
+  .t-karan{background:linear-gradient(135deg,#C0A07C,#8A6540)}
+  .t-house{background:linear-gradient(135deg,#7FA9A0,#547E77)}
+  .works .names h3{font-family:var(--font);font-size:1.35rem;font-weight:500;letter-spacing:.02em}
+  .works .names .enname{font-size:.8rem;color:var(--ink-soft);font-family:var(--font)}
+  .works .names p{font-size:.86rem;color:var(--ink-soft);margin-top:7px;line-height:1.75}
+  .works .st{font-family:var(--font);font-size:.82rem;letter-spacing:.1em;
+    color:var(--ink-soft);white-space:nowrap;border:1px solid var(--line);border-radius:20px;padding:5px 14px}
+
+  .practice{background:var(--paper-2)}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:50px 64px}
+  .pitem .pnum{font-family:var(--font);color:var(--accent-ink);font-size:1rem}
+  .pitem h3{font-size:1.4rem;font-weight:500;margin:6px 0 10px}
+  .pitem p{font-size:.92rem;color:var(--ink-soft);line-height:1.85}
+
+  .profile .pcols{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start}
+  .pname{font-size:2rem;font-weight:500;letter-spacing:.03em}
+  .prole{font-size:.9rem;color:var(--ink-soft);margin-top:4px;font-family:var(--font)}
+  .tl{margin-top:28px;border-left:1px solid var(--line);padding-left:24px}
+  .tl-item{display:grid;grid-template-columns:84px 1fr;gap:16px;margin-bottom:15px;font-size:.9rem}
+  .tl-year{font-family:var(--font);color:var(--accent-ink)}
+  .tl-desc{color:var(--ink-soft);line-height:1.7;font-size:.86rem}
+  .awt{font-family:var(--font);letter-spacing:.14em;text-transform:uppercase;
+    font-size:.82rem;color:var(--ink-soft);margin:34px 0 16px}
+  .aw{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:.86rem}
+  .aw .ay{font-family:var(--font);color:var(--accent-ink)}
+  .aw .at{line-height:1.6}.aw .as{display:block;font-size:.78rem;color:var(--ink-soft);margin-top:3px}
+  .pbox{background:var(--paper);border:1px solid var(--line);padding:26px}
+  .pbox strong{font-weight:500;display:block;margin-bottom:8px;font-family:var(--font);letter-spacing:.08em;font-size:1.1rem}
+  .pbox p{font-size:.88rem;color:var(--ink-soft);line-height:1.8}
+  .pbox a{color:var(--accent-ink);border-bottom:1px solid var(--accent)}
+
+  .contact{text-align:center}
+  .contact h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:500}
+  .contact p{max-width:32em;margin:20px auto 0;color:var(--ink-soft);font-size:.98rem}
+  .btn{display:inline-block;margin-top:36px;border:1px solid var(--ink);color:var(--ink);
+    font-family:var(--font);padding:15px 46px;font-size:.95rem;letter-spacing:.14em;
+    transition:background .4s,color .4s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .contact .mailto{margin-top:20px;font-family:var(--font);font-size:1rem;letter-spacing:.06em}
+  .contact .mailto a{color:var(--accent-ink);border-bottom:1px solid var(--accent);padding-bottom:2px}
+  .contact .en-line{margin-top:26px;font-family:var(--font);color:var(--accent-ink);font-size:.95rem}
+
+  footer{background:var(--ink);color:var(--paper);padding:70px 0 38px;font-size:.88rem}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
+  footer h4{letter-spacing:.1em;font-size:1.15rem;margin-bottom:16px}
+  footer ul{list-style:none} footer li{margin-bottom:10px;color:#B8B1A6}
+  footer a:hover{color:var(--accent)}
+  .brands a{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .brands strong{font-weight:500}.brands .sub{font-size:.74rem;color:#8E877C;display:block;font-family:var(--font)}
+  .copy{text-align:center;color:#8E877C;font-size:.74rem;padding-top:26px;
+    border-top:1px solid rgba(255,255,255,.12);letter-spacing:.06em}
+
+  /* ══ 画面幅への対応（日本語版と同じ段階） ══ */
+  @media(max-width:1180px){
+    .wrap{padding:0 28px}section{padding:100px 0}
+    .hero .wrap{gap:44px}.pgrid{gap:44px 46px}.profile .pcols{gap:46px}
+  }
+  @media(max-width:1024px){
+    .hero .wrap{grid-template-columns:1fr .78fr;gap:36px;padding-top:44px}
+    .hero p.lead{max-width:26em}
+    .foot-grid{grid-template-columns:1.4fr 1fr;gap:36px}
+  }
+  @media(max-width:860px){
+    .hero{min-height:auto}
+    .hero .wrap{grid-template-columns:1fr;gap:32px;padding-top:40px;padding-bottom:64px}
+    .hero-figure{aspect-ratio:4/3;max-height:56vh}
+    .hero p.lead{max-width:100%}
+    .philo .cols,.pgrid,.profile .pcols{grid-template-columns:1fr;gap:34px}
+    .works .item{grid-template-columns:96px 1fr;gap:18px}
+    .works .plate{width:96px;height:70px}.works .st{display:none}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    section{padding:84px 0}nav ul{gap:20px;font-size:.72rem}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 20px}header{padding:14px 20px}
+    .word .ja{font-size:1.12rem}
+    nav ul{gap:14px;font-size:.68rem;letter-spacing:.1em}
+    .hero .wrap{padding-top:32px}
+    section{padding:66px 0}
+    .sec-label{margin-bottom:36px;gap:12px}.sec-label .ja{display:none}
+    .works .item{grid-template-columns:76px 1fr;gap:14px;padding:20px 0}
+    .works .plate{width:76px;height:58px}
+    .tl-item{grid-template-columns:62px 1fr;gap:10px;font-size:.82rem}
+    .aw{grid-template-columns:46px 1fr;gap:10px}
+    .contact .mailto{font-size:.94rem;word-break:break-all}
+    .btn{padding:14px 32px;margin-top:30px}.pbox{padding:20px}
+  }
+  @media(max-width:420px){
+    nav ul{gap:11px;font-size:.64rem}
+    .word .la{font-size:.5rem;letter-spacing:.26em}
+  }
+</style>
+  <link rel="stylesheet" href="../assets/css/header.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-ja">YU-EN</span>
+      <span class="logo-en">DESIGN STUDIO</span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+      <ul>
+        <li><a href="../index.html">Works</a></li>
+        <li><a href="../studio.html">About</a></li>
+        <li><a href="../karan-products/en/index.html">Shop</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+      <div class="lang-switch">
+      <a href="../index.html" class="lang-btn">JP</a>
+      <span class="lang-sep">/</span>
+      <span class="lang-btn lang-btn--active">EN</span>
+    </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="label">YU-EN Design Studio</p>
+      <h1>The more you tend it,<br>the more you love it.</h1>
+      <p class="lead">We design architecture made to be cared for — and loved for a long time.</p>
+      <p class="en-line">大きな怪獣と、仲良くなるように。</p>
+    </div>
+    <figure class="hero-figure">
+      <img src="../images/brand/yuen-header.jpg" alt="YU-EN — a small studio above a bathhouse">
+      <figcaption>A small studio above a bathhouse</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philo" id="philosophy">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">01</span><h2>Architecture to Tend</h2></div>
+    <div class="cols">
+      <blockquote>A building is not finished when it is built — that is where it begins. You clean it, mend it, <em>tend</em> to it season by season. Like befriending a gentle giant, the more you care for it, the more <em>affection</em> quietly grows.</blockquote>
+      <div class="body">
+        <p>YU-EN Design Studio designs homes and small shops that are never simply "handed over and done." We make places their inhabitants can keep tending, and slowly grow to love — <strong>architecture made to be cared for over a long life</strong>.</p>
+        <p style="margin-top:18px">Our ground is a practice that isn't borrowed: studying at KKAA (Kengo Kuma &amp; Associates) while rebuilding and tending our own home by hand, above a real public bathhouse in Tokyo.</p>
+        <div class="kw"><span>tend</span><span>care</span><span>ma / space</span><span>affection</span><span>water &amp; wood</span><span>sento</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">02</span><h2>Selected Works</h2></div>
+    <div class="list">
+      <a class="item" href="../works/ekoda-house.html">
+        <div class="plate"><img src="../images/works/ekoda-house/_ph-01.svg" alt="Room above Ekoda-yu"></div>
+        <div class="names">
+          <h3>Room above Ekoda-yu　<span class="enname">江古田湯の住戸</span></h3>
+          <p>セルフビルド改修 ／ 東京・練馬 ／ 進行中</p>
+        </div>
+        <span class="st">Architecture</span>
+      </a>
+      <a class="item" href="../works/kide.html">
+        <div class="plate"><img src="../images/works/kide/_ph-01.svg" alt="Outdoor Timber Stage, Finland"></div>
+        <div class="names">
+          <h3>Outdoor Timber Stage, Finland　<span class="enname">KIDE</span></h3>
+          <p>Kuhmo, Finland ／ 2024 ／ 74㎡ ／ Aalto University Wood Program</p>
+        </div>
+        <span class="st">Architecture</span>
+      </a>
+      <a class="item" href="../works/inoue-house.html">
+        <div class="plate"><img src="../images/works/inoue-house/_ph-01.svg" alt="Inoue House"></div>
+        <div class="names">
+          <h3>Inoue House　<span class="enname">井上さんの家</span></h3>
+          <p>住宅改修 ／ 進行中</p>
+        </div>
+        <span class="st">Architecture</span>
+      </a>
+      <a class="item" href="../works/rooftop-hut.html">
+        <div class="plate"><img src="../images/works/rooftop-hut/_ph-01.svg" alt="Rooftop Hut"></div>
+        <div class="names">
+          <h3>Rooftop Hut</h3>
+          <p>小屋 ／ 進行中</p>
+        </div>
+        <span class="st">Architecture</span>
+      </a>
+      <a class="item" href="../works/itsukushima-folly.html">
+        <div class="plate"><img src="../images/works/itsukushima-folly/_ph-01.svg" alt="Folly at Itsukushima"></div>
+        <div class="names">
+          <h3>Folly at Itsukushima　<span class="enname">厳島神社のフォリー</span></h3>
+          <p>フォリー ／ 進行中</p>
+        </div>
+        <span class="st">Architecture</span>
+      </a>
+      <a class="item" href="../works/karan.html">
+        <div class="plate"><img src="../images/works/karan/_ph-01.svg" alt="Products from bathhouse salvage"></div>
+        <div class="names">
+          <h3>Products from bathhouse salvage　<span class="enname">Karan Products</span></h3>
+          <p>銭湯廃材のプロダクトブランド ／ 進行中</p>
+        </div>
+        <span class="st">Product</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section class="practice">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">03</span><h2>Practice</h2></div>
+    <div class="pgrid">
+      <div class="pitem"><h3><span class="jaT">Architectural Design</span></h3><p>New builds and renovations for homes, shops and community places — designed as places that keep growing through use, with a sense of tending and open space.</p></div>
+      <div class="pitem"><h3><span class="jaT">Karan Products</span></h3><p>Reviving timber, tiles and fittings from demolished bathhouses into everyday objects, carrying their layered time into new form.</p></div>
+      <div class="pitem"><h3><span class="jaT">Workshop &amp; Community</span></h3><p>Building new relationships between people and place through making and gathering. Grounded in ~2 years as staff at Kosugiyu Tonari.</p></div>
+      <div class="pitem"><h3><span class="jaT">Research &amp; Writing</span></h3><p>Study and writing on bathhouse culture, water and architecture, and circular living. An ongoing essay series on note.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="profile" id="about">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">04</span><h2>Profile</h2></div>
+    <div class="pcols">
+      <div>
+        <h3 class="pname">Ayato Hokkyo</h3>
+        <p class="prole">Architect / Product Designer　法橋 礼歩</p>
+        <div class="tl">
+          <div class="tl-item"><span class="tl-year">2000</span><span class="tl-desc">Born in Suginami, Tokyo. Family runs the public bathhouse &ldquo;Ekoda-yu.&rdquo;</span></div>
+          <div class="tl-item"><span class="tl-year">2023–24</span><span class="tl-desc">Aalto University Wood Program (Helsinki, Finland)</span></div>
+          <div class="tl-item"><span class="tl-year">2026</span><span class="tl-desc">M.Eng., Oceanic Architecture and Engineering,<br>Graduate School of Science and Technology, Nihon University</span></div>
+          <div class="tl-item"><span class="tl-year">2026–</span><span class="tl-desc">Joined Kengo Kuma &amp; Associates<br>Founded YU-EN Design Studio the same year</span></div>
+        </div>
+        <p class="awt">Award &amp; Publication</p>
+        <div class="aw"><span class="ay">2025</span><span class="at">Architizer A+Awards — Popular Winner / Cultural Pavilions<span class="as">KIDE — Outdoor Timber Stage</span></span></div>
+        <div class="aw"><span class="ay">2025</span><span class="at">Featured on ArchDaily (May) &amp; architecturephoto.net (Sep)<span class="as">KIDE — Outdoor Timber Stage</span></span></div>
+        <div class="aw"><span class="ay">2023</span><span class="at">11th Hulic Student Idea Competition — Honorable Mention<span class="as">Shinjuku Recycle Station</span></span></div>
+        <div class="aw"><span class="ay">2023</span><span class="at">Akarenga Graduation Design Exhibition — Top 100</span></div>
+        <div class="aw"><span class="ay">2023</span><span class="at">Competition for Reorganizing Historic Space — Top 30</span></div>
+      </div>
+      <div>
+        <div class="pbox">
+          <strong>Contact</strong>
+          <p>For commissions, consultations, press or collaboration, feel free to get in touch. We start with a short 15-minute conversation.</p>
+          <p style="margin-top:14px"><a href="#contact">About consultations →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-label" style="justify-content:center"><span class="num">05</span><h2 style="margin:0">Contact</h2></div>
+    <h2>Let's talk for 15 minutes.</h2>
+    <p>Renovating a home or shop, an old building, a bathhouse, a piece of furniture. Even if you don't yet know where to begin, that's perfectly fine. We'll take it slowly, together.</p>
+    <a class="btn" href="#" data-form>Get in touch</a>
+    <p class="mailto"><a href="mailto:yuen.designstudio@gmail.com">yuen.designstudio@gmail.com</a></p>
+    <p class="en-line">Let's tend something, together.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>YU-EN Design Studio</h4>
+        <p style="color:#B8B1A6;max-width:24em">The more you tend it, the more you love it. Architecture made to be cared for. A design studio by Ayato Hokkyo, living above a Tokyo bathhouse.</p>
+      </div>
+      <div>
+        <h4>Brands</h4>
+        <div class="brands">
+          <a href="index.html"><strong>YU-EN Design Studio</strong><span class="sub">Architecture to tend</span></a>
+          <a href="../karan-products/en/index.html"><strong>Karan Products</strong><span class="sub">Objects from sento materials</span></a>
+        </div>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="mailto:yuen.designstudio@gmail.com">yuen.designstudio@gmail.com</a></li>
+          <li><a href="https://note.com/orehokkyo" target="_blank" rel="noopener">note</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 YU-EN Design Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ヘッダーは共通の assets/css/header.css で常に地色が入るため、スクロール処理は不要
+  document.querySelectorAll('[data-form]').forEach(b=>b.addEventListener('click',e=>{
+    e.preventDefault();
+    alert('The contact form will go live at launch (coming soon).\\nEmail: yuen.designstudio@gmail.com');
+  }));
+</script>
+</body>
+</html>
