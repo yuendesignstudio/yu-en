@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | YU-EN Design Studio</title>
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/header.css">
+</head>
+<body>
+
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-ja">YU-EN</span>
+      <span class="logo-en">DESIGN STUDIO</span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+      <ul>
+        <li><a href="index.html">Works</a></li>
+        <li><a href="studio.html">About</a></li>
+        <li><a href="karan-products/index.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+      <div class="lang-switch">
+      <span class="lang-btn lang-btn--active">JP</span>
+      <span class="lang-sep">/</span>
+      <a href="en/index.html" class="lang-btn">EN</a>
+    </div>
+    </div>
+  </div>
+</header>
+
+  <!-- CONTACT HERO -->
+  <section class="contact-page-hero">
+    <div class="contact-page-hero-inner">
+      <a href="index.html" class="back-link">← トップへ</a>
+      <div class="section-label">
+        <span class="label-en">Contact</span>
+        <span class="label-ja">お問い合わせ</span>
+      </div>
+      <p class="contact-page-lead">
+        ご依頼・ご相談・取材・コラボレーションなど、<br />
+        お気軽にお問い合わせください。<br />
+        数日以内にご返信いたします。
+      </p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section">
+    <div class="form-container">
+
+      <div class="form-thanks" id="form-thanks" style="display:none;">
+        <p class="form-thanks-icon">✦</p>
+        <h2>送信が完了しました</h2>
+        <p>お問い合わせありがとうございます。<br />数日以内にご連絡いたします。</p>
+        <a href="index.html" class="btn btn-outline" style="margin-top:1.5rem;">トップへ戻る</a>
+      </div>
+      <form
+        class="contact-form"
+        id="contact-form"
+        action="https://formsubmit.co/yuen.designstudio@gmail.com"
+        method="POST"
+      >
+        <!-- 送信の設定（画面には出ません） -->
+        <input type="hidden" name="_subject" value="YU-EN Design Studio｜サイトからのお問い合わせ">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- 公開URLが決まったら、送信後の戻り先をここに入れる
+             例: <input type="hidden" name="_next" value="https://＜サイトのURL＞/contact.html?sent=1"> -->
+        <input type="text" name="_honey" style="display:none">
+        <!-- お問い合わせの種類 -->
+        <div class="form-group">
+          <p class="form-label">お問い合わせの種類 <span class="form-required">*</span></p>
+          <div class="form-radio-group">
+            <label class="form-radio">
+              <input type="radio" name="category" value="空間デザイン" required />
+              <span>空間デザイン</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="category" value="プロダクト制作" />
+              <span>プロダクト制作</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="category" value="ワークショップ" />
+              <span>ワークショップ</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="category" value="取材・メディア" />
+              <span>取材・メディア</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="category" value="その他" />
+              <span>その他</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">
+              お名前 <span class="form-required">*</span>
+            </label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="○○ ○○" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company">会社名・屋号</label>
+            <input class="form-input" type="text" id="company" name="company" placeholder="任意" autocomplete="organization" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">
+              メールアドレス <span class="form-required">*</span>
+            </label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="hello@example.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">お電話番号</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="090-0000-0000" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="source">どこで YU-EN Design Studio を知りましたか？</label>
+          <select class="form-select" id="source" name="source">
+            <option value="">選択してください</option>
+            <option value="Web検索">Web検索</option>
+            <option value="Instagram">Instagram</option>
+            <option value="YouTube">YouTube</option>
+            <option value="note">note</option>
+            <option value="ご紹介">ご紹介</option>
+            <option value="イベント・展示">イベント・展示</option>
+            <option value="その他">その他</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">
+            お問い合わせ内容 <span class="form-required">*</span>
+          </label>
+          <textarea
+            class="form-textarea"
+            id="message"
+            name="message"
+            required
+            rows="7"
+            maxlength="400"
+            placeholder="ご依頼の内容・ご質問・ご相談などをお書きください。"
+          ></textarea>
+          <div class="char-count">
+            <span id="char-count">0</span> / 400
+          </div>
+        </div>
+
+        <div class="form-group form-group--check">
+          <label class="form-check">
+            <input type="checkbox" name="privacy" required />
+            <span>個人情報の取り扱いに同意します</span>
+          </label>
+        </div>
+
+        <div class="form-submit-wrap">
+          <button type="submit" class="btn btn-primary form-submit-btn">
+            送信する <span>→</span>
+          </button>
+          <p class="form-note">
+            ※ 送信後、数日以内にご返信いたします。<br />
+            2〜3日経っても返信がない場合は、再度ご送信ください。
+          </p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-ja">YU-EN</span>
+        <span class="logo-en">DESIGN STUDIO</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="studio.html">About</a>
+        <a href="index.html">Works</a>
+        <a href="karan-products/index.html">Shop</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-sns">
+        <a href="#" class="sns-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <a href="#" class="sns-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8 0 3.2 0 3.6-.1 4.8-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1-3.2 0-3.6 0-4.8-.1-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.1-4.8C2.4 3.9 4 2.3 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12c0 3.3 0 3.7.1 4.9.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24c3.3 0 3.7 0 4.9-.1 4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9 0-3.3 0-3.7-.1-4.9C23.7 2.7 21.3.3 16.9.1 15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+        </a>
+        <a href="https://note.com/orehokkyo" class="sns-link" target="_blank" rel="noopener noreferrer" aria-label="note">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.5 0h-11C5.1 0 4 1.1 4 2.4v19.2C4 22.9 5.1 24 6.5 24h11c1.4 0 2.5-1.1 2.5-2.4V2.4C20 1.1 18.9 0 17.5 0zM7 6h10v1.5H7V6zm0 3.5h10V11H7V9.5zm0 3.5h7v1.5H7V13z"/></svg>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 YU-EN Design Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    const textarea = document.getElementById('message');
+    const counter  = document.getElementById('char-count');
+    if (textarea && counter) {
+      textarea.addEventListener('input', () => {
+        counter.textContent = textarea.value.length;
+      });
+    }
+  </script>
+</body>
+</html>

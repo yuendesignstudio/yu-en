@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YU-EN Design Studio ｜ 世話する建築</title>
+<meta name="description" content="YU-EN Design Studioは、お手入れして長く愛される建築を手がける設計スタジオです。大きな怪獣と仲良くなるように、建物を世話する。銭湯の上で暮らす建築家・法橋礼歩による建築・プロダクト・場づくり。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ★ 筑紫ゴシックのWebフォント（Adobe Fonts）を使う場合は、ここに kit の1行を貼ってください -->
+<!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+  /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
+  --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+
+    --paper:#F6F2EA; --paper-2:#EFE9DD; --ink:#26231F; --ink-soft:#6B655C;
+    --accent:#F2C9A5; --accent-ink:#A05F26; --line:#E2DBCE; --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--paper);
+    font-weight:300;line-height:2.0;letter-spacing:.03em;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,.serif{font-family:var(--font);font-weight:400}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+  .en{font-family:var(--font);letter-spacing:.06em}
+  .label{font-family:var(--font);font-size:.82rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--ink-soft)}
+
+  header{position:fixed;top:0;left:0;width:100%;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;padding:20px 32px;transition:background .5s}
+  header.solid{background:rgba(246,242,234,.88);backdrop-filter:blur(8px)}
+  .word{display:flex;flex-direction:column;line-height:1}
+  .word .ja{font-family:var(--font);font-size:1.3rem;letter-spacing:.18em}
+  .word .la{font-family:var(--font);font-weight:400;font-size:.56rem;letter-spacing:.34em;
+    color:var(--ink-soft);margin-top:5px}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:.76rem;letter-spacing:.16em;align-items:center}
+  nav a{color:var(--ink-soft);transition:color .4s} nav a:hover{color:var(--ink)}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('images/brand/yuen-header.jpg') center/cover;opacity:.06}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(246,242,234,.5),var(--paper) 82%)}
+  .hero .wrap{position:relative;z-index:2;width:100%;padding-top:56px;padding-bottom:80px;
+    display:grid;grid-template-columns:1.05fr .8fr;gap:56px;align-items:center}
+  .hero .label{margin-bottom:32px}
+  .hero h1{font-size:clamp(1.7rem,4.4vw,3.05rem);font-weight:300;line-height:1.7;letter-spacing:.05em}
+  /* 2行で止める（10文字が折れないように） */
+  .hero h1 .l{display:block;white-space:nowrap}
+  .hero p.lead{margin-top:34px;max-width:29em;font-size:1rem;color:var(--ink-soft);line-height:2.1}
+  .hero .en-line{margin-top:38px;font-style:italic;font-size:1.1rem;color:var(--accent-ink)}
+  /* トップ画像スロット */
+  .hero-figure{position:relative;margin:0;aspect-ratio:3/4;background:var(--paper-2);
+    border:1px solid var(--line);overflow:hidden}
+  .hero-figure img{width:100%;height:100%;object-fit:contain;background:var(--paper)}
+  .hero-figure figcaption{position:absolute;left:0;bottom:0;
+    writing-mode:vertical-rl;font-family:var(--font);font-size:.82rem;letter-spacing:.4em;
+    color:var(--paper);background:rgba(38,35,31,.55);padding:16px 10px;margin:14px}
+
+  section{padding:118px 0;border-top:1px solid var(--line)}
+  .sec-label{display:flex;align-items:baseline;gap:16px;margin-bottom:54px}
+  .sec-label .num{font-family:var(--font);font-size:1rem;color:var(--accent-ink)}
+  .sec-label h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:300;letter-spacing:.05em;line-height:1.6}
+  .sec-label .ja{font-size:.8rem;color:var(--ink-soft);letter-spacing:.14em;margin-left:auto}
+
+  /* philosophy */
+  /* 1カラム・左寄せ（2026-09-07 改稿） */
+  .philo .cols{display:block;max-width:720px}
+  .philo .body{font-size:1.02rem;color:var(--ink-soft);line-height:2.2}
+  .philo .body strong{font-weight:400;color:var(--ink)}
+  /* 締めの一文は明朝で少し大きく、本文より濃く */
+  .philo .body .close{margin-top:34px;font-family:var(--font);font-weight:300;
+    color:var(--ink);font-size:clamp(1.06rem,2vw,1.28rem);line-height:2.2;letter-spacing:.04em;
+    white-space:nowrap}   /* 指定した <br> の位置だけで改行する */
+  .philo .body .close em{font-style:normal;color:var(--accent-ink)}
+  .kw{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:30px;font-family:var(--font);
+    font-size:.86rem;color:var(--ink-soft);letter-spacing:.14em}
+  .kw span::before{content:"— "}
+
+  /* works */
+  /* 写真を主役にしたカード並び（2026-09-07 改稿） */
+  .works .list{display:grid;grid-template-columns:1fr 1fr;gap:52px 44px}
+  .works .item{display:block;transition:opacity .4s}
+  .works .item:hover{opacity:.82}
+  .works .plate{width:100%;aspect-ratio:4/3;overflow:hidden;
+    background:var(--paper-2);border:1px solid var(--line)}
+  .works .plate img{width:100%;height:100%;object-fit:cover;filter:saturate(.82);
+    transition:transform .8s ease}
+  .works .item:hover .plate img{transform:scale(1.03)}
+  .works .names{margin-top:18px}
+  .works .plate .tone{width:100%;height:100%}
+  .t-kide{background:linear-gradient(135deg,#9AA98C,#5E6E52)}
+  .t-yuge{background:linear-gradient(135deg,#7FAAB0,#4E7883)}
+  .t-thesis{background:linear-gradient(135deg,#8B97A0,#57626B)}
+  .t-shinjuku{background:linear-gradient(135deg,#B0A187,#7C6C50)}
+  .t-karan{background:linear-gradient(135deg,#C0A07C,#8A6540)}
+  .t-house{background:linear-gradient(135deg,#7FA9A0,#547E77)}
+  .works .names h3{font-size:1.18rem;font-weight:400;letter-spacing:.03em}
+  .works .names .enname{font-family:var(--font);font-style:italic;
+    color:var(--ink-soft);font-size:.92rem;letter-spacing:.03em}
+  .works .names p{font-size:.82rem;color:var(--ink-soft);margin-top:7px;line-height:1.85}
+  .works .st{display:inline-block;margin-top:12px;font-size:.7rem;letter-spacing:.14em;
+    color:var(--ink-soft);border:1px solid var(--line);border-radius:20px;padding:5px 13px}
+
+  /* practice */
+  .practice{background:var(--paper-2)}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:52px 64px}
+  .pitem .pnum{font-family:var(--font);color:var(--accent-ink);font-size:1rem}
+  .pitem h3{font-size:1.15rem;font-weight:400;margin:0 0 14px;letter-spacing:.03em}
+  /* 小見出しにアンダーバー（2026-09-07） */
+  .pitem h3 .jaT{display:inline-block;padding-bottom:7px;
+    border-bottom:2px solid var(--accent)}
+  .pitem h3 .ens{font-family:var(--font);font-style:italic;font-size:.86rem;
+    color:var(--ink-soft);display:block;margin-top:10px}
+  .pitem p{font-size:.9rem;color:var(--ink-soft);line-height:2.05}
+
+  /* profile */
+  /* 横幅いっぱいに使う（2026-09-07 改稿） */
+  .profile .pcols{display:block}
+  .phead{margin-bottom:38px}
+  /* 左＝略歴／右＝写真。受賞はこの下に全幅で置く */
+  .pgrid2{display:grid;grid-template-columns:1fr 232px;gap:48px;align-items:start}
+  .pphoto{margin:0}
+  .pphoto img{width:100%;aspect-ratio:3/4;object-fit:cover;
+    background:var(--paper-2);border:1px solid var(--line)}
+  .pphoto figcaption{margin-top:10px;font-family:var(--font);
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);text-align:center}
+  .pdiv{border:0;border-top:1px solid var(--line);margin:44px 0 34px}
+  .pname{font-size:1.7rem;font-weight:400;letter-spacing:.06em}
+  .pname-en{font-family:var(--font);font-style:italic;color:var(--ink-soft);margin-top:2px}
+  .prole{font-size:.85rem;color:var(--ink-soft);margin-top:6px;letter-spacing:.1em}
+  .tl{margin-top:0;border-left:1px solid var(--line);padding-left:26px}
+  .tl-item{display:grid;grid-template-columns:104px 1fr;gap:20px;margin-bottom:20px;font-size:.88rem}
+  .tl-year{font-family:var(--font);color:var(--accent-ink);letter-spacing:.05em}
+  /* 指定した <br> の位置だけで改行する（自動折り返しを止める） */
+  .tl-desc{color:var(--ink-soft);line-height:1.85;white-space:nowrap}
+  .awards{max-width:100%}
+  .awt{font-family:var(--font);letter-spacing:.14em;text-transform:uppercase;
+    font-size:.78rem;color:var(--ink-soft);margin:0 0 18px}
+  .aw{display:grid;grid-template-columns:84px 1fr;gap:22px;padding:13px 0;border-top:1px solid var(--line);font-size:.84rem}
+  .aw .ay{font-family:var(--font);color:var(--accent-ink)}
+  .aw .at{line-height:1.7}.aw .as{display:block;font-size:.76rem;color:var(--ink-soft);margin-top:3px}
+  .pbox{margin-top:48px;background:var(--paper-2);border:1px solid var(--line);
+    padding:26px 30px;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center}
+  .pbox strong{display:block;font-family:var(--font);letter-spacing:.16em;
+    font-size:.9rem;margin-bottom:8px}
+  .pbox .pboxlink{margin:0;white-space:nowrap}
+  .pbox strong{font-weight:400;display:block;margin-bottom:8px;font-family:var(--font);letter-spacing:.1em}
+  .pbox p{font-size:.86rem;color:var(--ink-soft);line-height:1.9}
+  .pbox a{color:var(--accent-ink);border-bottom:1px solid var(--accent)}
+
+  /* contact */
+  .contact{text-align:center}
+  .contact h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:300;line-height:1.8;letter-spacing:.05em}
+  /* 3行を左揃えにしたまま、かたまりごと中央に置く */
+  .contact p{display:inline-block;text-align:left;max-width:100%;margin:22px auto 0;
+    color:var(--ink-soft);font-size:.96rem;white-space:nowrap}
+  .btn{display:inline-block;margin-top:38px;border:1px solid var(--ink);color:var(--ink);
+    padding:16px 46px;font-size:.86rem;letter-spacing:.18em;transition:background .4s,color .4s}
+  .btn:hover{background:var(--ink);color:var(--paper)}
+  .contact .mailto{margin-top:22px;font-family:var(--font);font-size:1.02rem;
+    letter-spacing:.06em}
+  .contact .mailto a{color:var(--accent-ink);border-bottom:1px solid var(--accent);padding-bottom:2px}
+  .contact .en-line{margin-top:28px;font-style:italic;color:var(--accent-ink)}
+
+  footer{background:var(--ink);color:var(--paper);padding:70px 0 38px;font-size:.85rem}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
+  footer h4{font-family:var(--font);letter-spacing:.12em;font-size:1.05rem;margin-bottom:16px}
+  footer ul{list-style:none} footer li{margin-bottom:10px;color:#B8B1A6}
+  footer a:hover{color:var(--accent)}
+  .brands a{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .brands strong{font-weight:400}.brands .sub{font-size:.72rem;color:#8E877C;display:block}
+  .copy{text-align:center;color:#8E877C;font-size:.72rem;padding-top:26px;
+    border-top:1px solid rgba(255,255,255,.12);letter-spacing:.08em}
+
+  /* ══ 画面幅への対応 ═══════════════════════════════════
+     1280〜  デスクトップ（既定）
+     〜1180  ノートPC：余白と段間を詰める
+     〜1024  iPad 横：本文の行長を保つ
+     〜860   iPad 縦：1カラムへ。メニューは残す
+     〜640   スマホ：文字と余白を一段落とす
+     〜420   小型スマホ：見出しの折り返しを許す           */
+
+  /* ノートPC */
+  @media(max-width:1180px){
+    .wrap{padding:0 28px}
+    section{padding:100px 0}
+    .hero .wrap{gap:44px}
+    .pgrid{gap:44px 46px}
+    .profile .pcols{gap:46px}
+  }
+  /* iPad 横 */
+  @media(max-width:1024px){
+    .hero .wrap{grid-template-columns:1fr .78fr;gap:36px;padding-top:44px}
+    .hero p.lead{max-width:26em}
+    .philo .cols{max-width:100%}
+    .foot-grid{grid-template-columns:1.4fr 1fr;gap:36px}
+    .works .list{gap:44px 34px}
+    .pgrid2{grid-template-columns:1fr 208px;gap:36px}
+  }
+  /* iPad 縦：1カラムに畳む。メニューは消さない */
+  @media(max-width:860px){
+    .hero{min-height:auto}
+    .hero .wrap{grid-template-columns:1fr;gap:32px;padding-top:40px;padding-bottom:64px}
+    .hero-figure{aspect-ratio:4/3;max-height:56vh}
+    .hero p.lead{max-width:100%}
+    .pgrid,.profile .pcols{grid-template-columns:1fr;gap:34px}
+    .works .list{grid-template-columns:1fr;gap:40px}
+    .works .plate{aspect-ratio:16/10}
+    .pgrid2{grid-template-columns:1fr;gap:30px}
+    .pphoto{order:-1;max-width:268px}
+    .pphoto img{aspect-ratio:4/3}
+    .pdiv{margin:34px 0 28px}
+    .pbox{grid-template-columns:1fr;gap:16px}
+    .pbox .pboxlink{white-space:normal}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    section{padding:84px 0}
+    nav ul{gap:20px;font-size:.72rem}
+  }
+  /* スマホ */
+  @media(max-width:640px){
+    .wrap{padding:0 20px}
+    header{padding:14px 20px}
+    .word .ja{font-size:1.12rem}
+    nav ul{gap:14px;font-size:.68rem;letter-spacing:.1em}
+    .hero .wrap{padding-top:32px}
+    .hero h1{line-height:1.75}
+    .hero p.lead{font-size:.94rem;line-height:2.0}
+    .hero .en-line{font-size:1rem;margin-top:28px}
+    section{padding:66px 0}
+    .sec-label{margin-bottom:36px;gap:12px}
+    .sec-label .ja{display:none}          /* 右端の日本語ラベルは幅を食うので隠す */
+    .philo .body{font-size:.96rem;line-height:2.1}
+    .works .list{gap:34px}
+    .works .plate{aspect-ratio:4/3}
+    .works .names{margin-top:14px}
+    .works .names h3{font-size:1.05rem}
+    .tl{padding-left:18px}
+    .tl-desc{white-space:normal}
+    .tl-item{grid-template-columns:72px 1fr;gap:12px;font-size:.82rem;margin-bottom:16px}
+    .aw{grid-template-columns:56px 1fr;gap:14px}
+    .pbox{padding:22px 20px}
+    .contact p{white-space:normal;max-width:30em;text-align:center}
+    .contact .mailto{font-size:.94rem;word-break:break-all}
+    .btn{padding:14px 32px;margin-top:30px}
+    .pbox{padding:20px}
+  }
+  /* 締めの一文は、幅が足りなくなったら折り返しを許す */
+  @media(max-width:700px){ .philo .body .close{white-space:normal} }
+  /* 小型スマホ */
+  @media(max-width:420px){
+    .hero h1 .l{white-space:normal}       /* はみ出すより折り返す */
+    .hero h1{font-size:clamp(1.42rem,7.4vw,1.9rem)}
+    nav ul{gap:11px;font-size:.64rem}
+    .word .la{font-size:.5rem;letter-spacing:.26em}
+  }
+</style>
+  <link rel="stylesheet" href="assets/css/header.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-ja">YU-EN</span>
+      <span class="logo-en">DESIGN STUDIO</span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+      <ul>
+        <li><a href="index.html">Works</a></li>
+        <li><a href="studio.html">About</a></li>
+        <li><a href="karan-products/index.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+      <div class="lang-switch">
+      <span class="lang-btn lang-btn--active">JP</span>
+      <span class="lang-sep">/</span>
+      <a href="en/index.html" class="lang-btn">EN</a>
+    </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="label">YU-EN Design Studio</p>
+      <h1><span class="l">世話をするほど、</span><span class="l">愛着をもてる建築を。</span></h1>
+      <p class="lead">お手入れしながら、長く愛される場所をつくります。</p>
+      <p class="en-line">Architecture to tend &amp; love.</p>
+    </div>
+
+    <!-- ▼▼ トップ画像の差し込み口 ▼▼ ────────────────────────
+         images/ フォルダに写真を入れて、下の src を差し替えてください。
+         推奨: 縦長（3:4くらい）。銭湯・湯気・手入れの風景・自邸などが◎ -->
+    <figure class="hero-figure">
+      <img src="images/brand/hero-drawing.svg" alt="断面のドローイング（仮・ご自身の線画に差し替え予定）">
+    </figure>
+    <!-- ▲▲ ここまで ▲▲ ─────────────────────────────────── -->
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philo" id="philosophy">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">01</span><h2>世話する建築</h2><span class="ja">Studio</span></div>
+    <div class="cols">
+      <div class="body">
+        <p>YU-EN Design Studio は、建築を軸に、人・場所・素材をつなぐ縁を手がかりとした建築デザインスタジオです。<br>住宅や小さなお店の空間を「完成させて引き渡して終わり」にせず、住み手が自分で手入れをして少しずつ好きになっていける、<strong>お手入れして長く愛される建築</strong>をデザインします。</p>
+        <p class="close">掃除をして、手を入れて、季節ごとに世話をする。<br>大きな怪獣と仲良くなるように付き合っていく、<br>そんなゆっくりと<em>愛着</em>がもてる場を一緒に育てていきたいです</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">02</span><h2>手をかけて、長く付き合う仕事</h2><span class="ja">Works</span></div>
+    <div class="list">
+      <!-- WORKS:start -->
+      <a class="item" href="works/ekoda-house.html">
+        <div class="plate"><img src="images/works/ekoda-house/_ph-hero.svg" alt="江古田湯の住戸（仮画像）"></div>
+        <div class="names">
+          <h3>江古田湯の住戸　<span class="enname">Room above Ekoda-yu</span></h3>
+          <p>銭湯の上の一室を、自分の手で少しずつ。設計者が住み手になり、日々世話をしながら暮らす実験住宅。すべての出発点。</p>
+        </div>
+        <span class="st">進行中 ・ 自邸</span>
+      </a>
+      <a class="item" href="works/kide.html">
+        <div class="plate"><img src="images/works/kide/_ph-hero.svg" alt="KIDE（仮画像）"></div>
+        <div class="names">
+          <h3>KIDE　<span class="enname">Outdoor Timber Stage, Finland</span></h3>
+          <p>フィンランド・クフモの屋外木造ステージ。Aalto University Wood Program で設計・施工。Architizer A+Awards Popular Winner、ArchDaily 掲載。</p>
+        </div>
+        <span class="st">Architecture ・ 2024</span>
+      </a>
+      <a class="item" href="works/inoue-house.html">
+        <div class="plate"><img src="images/works/inoue-house/_ph-hero.svg" alt="井上さんの家（仮画像）"></div>
+        <div class="names">
+          <h3>井上さんの家　<span class="enname">Inoue House</span></h3>
+          <p>住まいを引き継ぎ、手を入れて住み続けるための改修。（本文はこれから）</p>
+        </div>
+        <span class="st">進行中 ・ 住宅</span>
+      </a>
+      <a class="item" href="works/rooftop-hut.html">
+        <div class="plate"><img src="images/works/rooftop-hut/_ph-hero.svg" alt="Rooftop Hut（仮画像）"></div>
+        <div class="names">
+          <h3>Rooftop Hut</h3>
+          <p>屋上に建てる、ひとつの小さな居場所。（本文はこれから）</p>
+        </div>
+        <span class="st">進行中 ・ 小屋</span>
+      </a>
+      <a class="item" href="works/itsukushima-folly.html">
+        <div class="plate"><img src="images/works/itsukushima-folly/_ph-hero.svg" alt="厳島神社のフォリー（仮画像）"></div>
+        <div class="names">
+          <h3>厳島神社のフォリー　<span class="enname">Folly at Itsukushima</span></h3>
+          <p>水に立つ社のかたわらに置く、小さな構築物。（本文はこれから）</p>
+        </div>
+        <span class="st">進行中 ・ フォリー</span>
+      </a>
+      <a class="item" href="works/karan.html">
+        <div class="plate"><img src="images/works/karan/_ph-hero.svg" alt="Karan Products（仮画像）"></div>
+        <div class="names">
+          <h3>Karan Products　<span class="enname">Products from bathhouse salvage</span></h3>
+          <p>解体される銭湯の木材・タイル・金具を再生し、日常の道具へ。銭湯素材の持つ時間の重なりを、新しい形で伝えます。</p>
+        </div>
+        <span class="st">進行中 ・ プロダクト</span>
+      </a>
+      <!-- WORKS:end -->
+    
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section class="practice">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">03</span><h2>活動領域</h2><span class="ja">Practice</span></div>
+    <div class="pgrid">
+      <div class="pitem"><h3><span class="jaT">建築・空間デザイン</span><span class="ens">Architectural Design</span></h3><p>住宅・店舗・地域拠点の新築／改修。完成した瞬間ではなく、使われ続けて育っていく場を、手入れと余白の感覚で提案します。</p></div>
+      <div class="pitem"><h3><span class="jaT">プロダクト制作</span><span class="ens">Karan Products</span></h3><p>解体される銭湯の木材・タイル・金具を再生し、日常の道具へ転換。銭湯素材の持つ時間の重なりを、新しい形で伝えます。</p></div>
+      <div class="pitem"><h3><span class="jaT">ワークショップ・場の運営</span><span class="ens">Workshop &amp; Community</span></h3><p>つくること・集まることを通して、人と場所の新しい関係を育てる企画。場の手入れそのものをデザインします。</p></div>
+      <div class="pitem"><h3><span class="jaT">リサーチ・執筆</span><span class="ens">Research &amp; Writing</span></h3><p>銭湯文化・水と建築・循環型の暮らしをテーマに調査・論考・発表。noteでの連載も継続中です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE / ABOUT -->
+<section class="profile" id="about">
+  <div class="wrap">
+    <div class="sec-label"><span class="num">04</span><h2>プロフィール</h2><span class="ja">Profile</span></div>
+    <div class="pcols">
+      <div class="phead">
+        <h3 class="pname">法橋 礼歩</h3>
+        <p class="pname-en">Ayato Hokkyo</p>
+        <p class="prole">建築家 ／ プロダクトデザイナー</p>
+      </div>
+      <div class="pgrid2">
+        <div class="tl">
+          <div class="tl-item"><span class="tl-year">2000</span><span class="tl-desc">東京・杉並生まれ。<br>家業は銭湯「江古田湯」</span></div>
+          <div class="tl-item"><span class="tl-year">2023–24</span><span class="tl-desc">Aalto University Wood Program 修了<br>（フィンランド・ヘルシンキ）</span></div>
+          <div class="tl-item"><span class="tl-year">2026</span><span class="tl-desc">日本大学大学院 理工学研究科<br>海洋建築工学専攻 修了</span></div>
+          <div class="tl-item"><span class="tl-year">2026–</span><span class="tl-desc">隈研吾建築都市設計事務所 入社<br>同年、YU-EN DESIGN STUDIO 設立</span></div>
+        </div>
+        <figure class="pphoto">
+          <img src="images/brand/portrait.svg" alt="法橋礼歩（仮画像・写真に差し替え予定）">
+          <figcaption>Portrait</figcaption>
+        </figure>
+      </div>
+
+      <hr class="pdiv">
+
+      <div class="awards">
+        <p class="awt">Award &amp; Publication</p>
+        <div class="aw"><span class="ay">2025</span><span class="at">Architizer A+Awards — Popular Winner / Cultural Pavilions<span class="as">KIDE — Outdoor Timber Stage</span></span></div>
+        <div class="aw"><span class="ay">2025</span><span class="at">ArchDaily 掲載（5月）／ architecturephoto.net 掲載（9月）<span class="as">KIDE — Outdoor Timber Stage</span></span></div>
+        <div class="aw"><span class="ay">2023</span><span class="at">第11回ヒューリック学生アイデアコンペ — 佳作<span class="as">新宿リサイクルステーション</span></span></div>
+        <div class="aw"><span class="ay">2023</span><span class="at">赤レンガ卒業設計展 — 100選</span></div>
+        <div class="aw"><span class="ay">2023</span><span class="at">歴史的空間再編コンペティション — 30選</span></div>
+      </div>
+      <div class="pbox">
+        <div>
+          <strong>Contact</strong>
+          <p>ご依頼・ご相談・取材・コラボレーションなど、お気軽にお問い合わせください。まずは15分、お話を伺うところから。</p>
+        </div>
+        <p class="pboxlink"><a href="#contact">相談について →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p>家やお店の改修、銭湯や古い建物のこと、家具のこと。<br>何から考えればいいか分からない段階でも大丈夫です。<br>ゆっくりご一緒します。</p>
+    <a class="btn" href="#" data-form>お問い合わせ</a>
+    <p class="mailto"><a href="mailto:yuen.designstudio@gmail.com">yuen.designstudio@gmail.com</a></p>
+    <p class="en-line">Let's tend something, together.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>YU-EN Design Studio</h4>
+        <p style="color:#B8B1A6;max-width:24em">世話をするほど、愛着をもてる建築を。銭湯の上で暮らす建築家・法橋礼歩による設計スタジオ。</p>
+      </div>
+      <div>
+        <h4>Brands</h4>
+        <div class="brands">
+          <a href="index.html"><strong>YU-EN Design Studio</strong><span class="sub">世話する建築 ・ 設計</span></a>
+          <a href="karan-products/index.html"><strong>Karan Products</strong><span class="sub">古材の一点物 ・ 家具 ・ ワークショップ</span></a>
+        </div>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="mailto:yuen.designstudio@gmail.com">yuen.designstudio@gmail.com</a></li>
+          <li><a href="https://note.com/orehokkyo" target="_blank" rel="noopener">note</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 YU-EN Design Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ヘッダーは共通の assets/css/header.css で常に地色が入るため、スクロール処理は不要
+  document.querySelectorAll('[data-form]').forEach(b=>b.addEventListener('click',e=>{
+    e.preventDefault();
+    alert('お問い合わせフォームは公開時に有効化されます（準備中）。\\nメール: yuen.designstudio@gmail.com');
+  }));
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご依頼と費用 ｜ YU-EN Design Studio</title>
+<meta name="description" content="YU-EN Design Studioの設計デザイン費と、初回ご提案パッケージ（70,000円・ご契約時は全額を設計料から差し引き）のご案内。まずは30分、話してみることから。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- ★ 筑紫ゴシックのWebフォント（Adobe Fonts）を使う場合は、ここに kit の1行を貼ってください -->
+<!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+  /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
+  --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+
+    --paper:#F6F2EA; --paper-2:#EFE9DD; --ink:#26231F; --ink-soft:#6B655C;
+    --accent:#F2C9A5; --accent-ink:#A05F26; --line:#E2DBCE; --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--paper);
+    font-weight:300;line-height:2.0;letter-spacing:.03em;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,.serif{font-family:var(--font);font-weight:400}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+  .en{font-family:var(--font);letter-spacing:.06em}
+  .label{font-family:var(--font);font-size:.82rem;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--ink-soft)}
+
+  header{position:fixed;top:0;left:0;width:100%;z-index:50;display:flex;align-items:center;
+    justify-content:space-between;padding:20px 32px;background:rgba(246,242,234,.88);backdrop-filter:blur(8px)}
+  .word{display:flex;flex-direction:column;line-height:1}
+  .word .ja{font-family:var(--font);font-size:1.3rem;letter-spacing:.18em}
+  .word .la{font-family:var(--font);font-weight:400;font-size:.56rem;letter-spacing:.34em;
+    color:var(--ink-soft);margin-top:5px}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:.76rem;letter-spacing:.16em;align-items:center}
+  nav a{color:var(--ink-soft);transition:color .4s} nav a:hover{color:var(--ink)}
+
+  .top{padding:96px 0 70px}
+  .top h1{font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.6;margin:18px 0 22px}
+  .top p.lead{max-width:38em;color:var(--ink-soft)}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-size:1.45rem;margin-bottom:10px}
+  .sub{color:var(--ink-soft);font-size:.9rem;margin-bottom:34px}
+
+  /* 初回パッケージ */
+  .pack{background:#fff;border:1px solid var(--line);padding:44px 46px;display:grid;
+    grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+  .pack h3{font-size:1.25rem;margin-bottom:8px}
+  .pack ul{list-style:none;margin-top:18px}
+  .pack li{padding:11px 0;border-bottom:1px dashed var(--line);display:flex;
+    justify-content:space-between;gap:16px;font-size:.92rem}
+  .pack li span.n{color:var(--ink-soft);font-size:.82rem;white-space:nowrap}
+  .price{background:var(--paper-2);padding:28px 30px;text-align:center}
+  .price .num{font-family:var(--font);font-size:2.7rem;line-height:1.2;letter-spacing:.02em}
+  .price .tax{font-size:.8rem;color:var(--ink-soft);margin-top:4px}
+  .price .back{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:.86rem;line-height:1.9;text-align:left}
+  .price .back b{color:var(--accent-ink)}
+
+  /* 設計料 */
+  .rate{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:8px}
+  .card{background:#fff;border:1px solid var(--line);padding:30px 28px}
+  .card h4{font-size:1.05rem;margin-bottom:6px}
+  .card .big{font-family:var(--font);font-size:1.9rem;margin:10px 0 6px}
+  .card p{font-size:.87rem;color:var(--ink-soft);line-height:1.9}
+
+  /* 流れ */
+  .flow{counter-reset:s;display:grid;gap:0}
+  .flow div{display:grid;grid-template-columns:46px 1fr;gap:20px;padding:20px 0;
+    border-bottom:1px solid var(--line)}
+  .flow div::before{counter-increment:s;content:counter(s,decimal-leading-zero);
+    font-family:var(--font);font-size:1.2rem;color:var(--accent-ink)}
+  .flow h4{font-size:1rem;margin-bottom:3px}
+  .flow p{font-size:.87rem;color:var(--ink-soft)}
+
+  .notes{margin-top:30px;font-size:.83rem;color:var(--ink-soft);line-height:2.1}
+  .notes li{list-style:none;padding-left:1.2em;text-indent:-1.2em}
+
+  .cta{background:var(--ink);color:var(--paper);padding:66px 0;text-align:center}
+  .cta h2{color:var(--paper);margin-bottom:12px}
+  .cta p{color:#B8B1A6;font-size:.92rem;margin-bottom:28px}
+  .cta a{display:inline-block;border:1px solid var(--paper);padding:15px 44px;
+    font-size:.86rem;letter-spacing:.14em;transition:.4s}
+  .cta a:hover{background:var(--paper);color:var(--ink)}
+
+  footer{background:var(--ink);color:var(--paper);padding:60px 0 34px;font-size:.85rem;
+    border-top:1px solid #3a352f}
+  .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
+  footer h4{font-family:var(--font);letter-spacing:.12em;font-size:1.05rem;margin-bottom:16px}
+  footer ul{list-style:none} footer li{margin-bottom:10px;color:#B8B1A6}
+  footer a:hover{color:var(--accent)}
+  .copy{margin-top:38px;color:#6E675E;font-size:.76rem}
+
+  @media(max-width:1024px){
+    .wrap{padding:0 28px}
+    .top{padding:80px 0 60px}
+    .pack{padding:38px 34px;gap:34px}
+  }
+  @media(max-width:860px){
+    .pack{grid-template-columns:1fr;padding:32px 26px;gap:28px}
+    .top{padding:70px 0 50px}
+    nav ul{gap:20px;font-size:.72rem}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 20px}
+    header{padding:14px 20px}
+    nav ul{gap:14px;font-size:.68rem;letter-spacing:.1em}
+    .top{padding:56px 0 40px}
+    .pack{padding:24px 20px}
+    .rate{grid-template-columns:1fr;gap:16px}
+    .flow div{grid-template-columns:34px 1fr;gap:14px;padding:16px 0}
+    .foot-grid{grid-template-columns:1fr;gap:26px}
+  }
+  @media(max-width:420px){
+    nav ul{gap:11px;font-size:.64rem}
+  }
+</style>
+  <link rel="stylesheet" href="assets/css/header.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-ja">YU-EN</span>
+      <span class="logo-en">DESIGN STUDIO</span>
+    </a>
+    <div class="header-right">
+      <nav class="site-nav" id="site-nav">
+      <ul>
+        <li><a href="index.html">Works</a></li>
+        <li><a href="studio.html">About</a></li>
+        <li><a href="karan-products/index.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+      <div class="lang-switch">
+      <span class="lang-btn lang-btn--active">JP</span>
+      <span class="lang-sep">/</span>
+      <a href="en/index.html" class="lang-btn">EN</a>
+    </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap top">
+  <div class="label">Fee</div>
+  <h1>ご依頼と費用について</h1>
+  <p class="lead">
+    はじめてのご相談から、かたちのあるご提案までを一式でお受けしています。
+    図面だけでなく模型とCGまでお出しするのは、平面図だけでは伝わらないことがあるからです。
+  </p>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>初回ご提案パッケージ</h2>
+    <p class="sub">まずはこの一式で、住まいの方向をご一緒に確かめてください。</p>
+
+    <div class="pack">
+      <div>
+        <h3>ご提案・図面・お見積り・模型・CG を一式で</h3>
+        <ul>
+          <li><span>ご提案（ヒアリング・コンセプト・ゾーニング）</span><span class="n">16,000円</span></li>
+          <li><span>図面（平面プラン図 2枚）</span><span class="n">20,000円</span></li>
+          <li><span>概算お見積り</span><span class="n">10,000円</span></li>
+          <li><span>検討模型 1点（縮尺1/50程度）</span><span class="n">20,000円</span></li>
+          <li><span>内観CG 1点</span><span class="n">4,000円</span></li>
+        </ul>
+        <p style="margin-top:22px;font-size:.87rem;color:var(--ink-soft)">
+          含むもの：現地確認1回／ヒアリング（オンライン可）／ご提案のご説明1回／軽微な修正1回まで／成果物のお渡し<br>
+          含まないもの：実測調査・既存図面のCAD化／構造・設備の詳細検討／確認申請などの手続き／複数案の並行提案
+        </p>
+      </div>
+
+      <div class="price">
+        <div class="label" style="font-size:.72rem">Total</div>
+        <div class="num">70,000<span style="font-size:1.1rem">円</span></div>
+        <div class="tax">税込・一式</div>
+        <div class="back">
+          <b>ご契約いただいた場合、全額お返しします。</b><br>
+          正式に設計デザイン・デザイン監理業務をご依頼いただいた場合、この費用は全額を設計料の総額から差し引きます。実質のご負担は0円です。<br>
+          <span style="color:var(--ink-soft)">充当の期限は設けておりません。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>設計デザイン・デザイン監理費</h2>
+    <p class="sub">調査から監理まで、業務のすべてを含みます。</p>
+    <div class="rate">
+      <div class="card">
+        <h4>標準の考え方</h4>
+        <div class="big">工事費の 20<span style="font-size:1rem">%</span></div>
+        <p>調査・提案・基本デザイン・実施デザイン・工事見積調整・デザイン監理をすべて含みます。</p>
+      </div>
+      <div class="card">
+        <h4>小規模な改修</h4>
+        <div class="big">40〜60<span style="font-size:1rem">万円〜</span></div>
+        <p>一室の改修や部分的な模様替えなど。規模が小さいほど料率では見合わないため、最低額を設けています。</p>
+      </div>
+      <div class="card">
+        <h4>お支払い</h4>
+        <div class="big">着手金 25<span style="font-size:1rem">%</span></div>
+        <p>ご契約時に着手金として総額の約25%を、残額は業務完了時にご請求いたします。</p>
+      </div>
+    </div>
+    <ul class="notes">
+      <li>※ 成果図面：平面図／天井伏せ図／電気配線図／内装撤去工事前 既存図／内装撤去工事後 既存図／各室 展開図／仕上表／簡易パース の8種。</li>
+      <li>※ 工事費・デザイン工程に増減があった場合は、別途再精算とさせていただきます。</li>
+      <li>※ 建物の規模やご要望により変わります。まずはご相談ください。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>ご相談から着工までの流れ</h2>
+    <p class="sub">はじめての方も、迷ったところで止めていただいて大丈夫です。</p>
+    <div class="flow">
+      <div><div><h4>まず30分、話してみる</h4><p>オンラインでも構いません。お困りごとと、やりたいことを伺います。費用はいただきません。</p></div></div>
+      <div><div><h4>現地を見せていただく</h4><p>実際の場所に立って、寸法と気配を確かめます。</p></div></div>
+      <div><div><h4>初回ご提案（70,000円）</h4><p>コンセプト・平面プラン2枚・概算お見積り・検討模型・内観CGを一式でお出しします。</p></div></div>
+      <div><div><h4>設計のご契約</h4><p>ご納得いただけましたら、着手金をご請求のうえ基本デザインに入ります。初回ご提案の費用は全額差し引きます。</p></div></div>
+      <div><div><h4>基本デザイン → 実施デザイン</h4><p>プランを固め、図面8種を作成します。この間に工事のお見積りを調整します。</p></div></div>
+      <div><div><h4>着工・デザイン監理</h4><p>現場に通い、色を決め、図面と実物を照らし合わせます。引き渡しまでご一緒します。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>まず30分、話してみませんか</h2>
+    <p>相談の段階で費用はいただきません。まだ何も決まっていなくて大丈夫です。</p>
+    <a href="studio.html#contact">お問い合わせ</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>YU-EN Design Studio</h4>
+        <p style="color:#B8B1A6;max-width:24em">世話をするほど、愛着をもてる建築を。銭湯の上で暮らす建築家・法橋礼歩による設計スタジオ。</p>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Works</a></li>
+          <li><a href="studio.html#about">About</a></li>
+                <li><a href="studio.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://note.com/orehokkyo" target="_blank" rel="noopener">note</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy">© 2026 YU-EN Design Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>YU-EN Design Studio — 名刺デザイン案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+  /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
+  --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+
+    --white:#FAFAF8; --off-white:#F5F3EF;
+    --aqua-100:#FBF0E4; --aqua-200:#F7DCC4; --aqua-400:#F2C9A5; --aqua-600:#A05F26;
+    --pink-100:#FBF0EE; --pink-200:#F5D9D4; --pink-400:#E8A89E;
+    --sand-100:#F3EDE4; --sand-300:#C8BAA8;
+    --ink:#2A2723; --ink-light:#5A534B; --ink-muted:#9A9289;
+    --serif:var(--font); --sans:var(--font); --latin:var(--font);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#E7E4DE;color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.8;padding:48px 24px 96px}
+  .wrap{max-width:1180px;margin:0 auto}
+  .page-head{text-align:center;margin-bottom:8px}
+  .page-head .ja{font-family:var(--serif);font-size:2rem;letter-spacing:.18em}
+  .page-head .en{font-family:var(--latin);font-style:italic;font-size:1.1rem;color:var(--ink-light);letter-spacing:.04em}
+  .page-sub{text-align:center;color:var(--ink-light);font-size:.9rem;margin:14px auto 0;max-width:680px}
+  .spec{text-align:center;color:var(--ink-muted);font-size:.78rem;letter-spacing:.06em;margin-top:6px}
+
+  .variant{margin-top:64px}
+  .variant-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #cfcabf}
+  .variant-no{font-family:var(--latin);font-style:italic;font-size:1.5rem;color:var(--aqua-600)}
+  .variant-name{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em}
+  .variant-desc{font-size:.82rem;color:var(--ink-light)}
+
+  .cards{display:flex;flex-wrap:wrap;gap:32px;justify-content:center}
+  .card-col{display:flex;flex-direction:column;gap:10px;align-items:center}
+  .card-label{font-size:.72rem;letter-spacing:.18em;color:var(--ink-muted);text-transform:uppercase}
+  /* 91 x 55 mm  →  546 x 330 px (6px/mm) */
+  .card{width:546px;height:330px;border-radius:6px;overflow:hidden;position:relative;
+        box-shadow:0 10px 30px rgba(42,39,35,.18);}
+
+  /* steam motif */
+  .steam{position:absolute;opacity:.5}
+  .steam path{fill:none;stroke-linecap:round}
+
+  /* ---------- Variant 1 : 静 (minimal serif) ---------- */
+  .v1-front{background:var(--white);padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between}
+  .v1-front .logo-ja{font-family:var(--serif);font-weight:400;font-size:3.4rem;letter-spacing:.22em;color:var(--ink);line-height:1}
+  .v1-front .logo-en{font-family:var(--latin);font-style:italic;font-size:1.2rem;color:var(--aqua-600);letter-spacing:.1em;margin-top:8px}
+  .v1-front .tagline{font-family:var(--serif);font-size:.82rem;color:var(--ink-light);letter-spacing:.08em}
+  .v1-front .rule{width:34px;height:1px;background:var(--aqua-400);margin:14px 0}
+  .v1-front .name{font-family:var(--serif);font-size:1.4rem;letter-spacing:.14em}
+  .v1-front .name-en{font-family:var(--latin);font-style:italic;font-size:.95rem;color:var(--ink-light);letter-spacing:.06em;margin-top:2px}
+  .v1-front .role{font-size:.72rem;color:var(--ink-light);letter-spacing:.1em;margin-top:6px}
+  .v1-front .top{display:flex;justify-content:space-between;align-items:flex-start}
+  .v1-back{background:var(--aqua-100);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+  .v1-back .mark{font-family:var(--serif);font-size:4.6rem;letter-spacing:.2em;color:var(--aqua-600);padding-left:.2em}
+  .v1-back .mark-en{font-family:var(--latin);font-style:italic;font-size:1.1rem;color:var(--ink-light);letter-spacing:.24em}
+  .contact{font-family:var(--sans);font-size:.72rem;color:var(--ink-light);letter-spacing:.04em;line-height:2}
+  .contact .lbl{display:inline-block;width:74px;color:var(--ink-muted);font-family:var(--latin);font-style:italic;font-size:.82rem}
+
+  /* ---------- Variant 2 : 湯気 (aqua, steam) ---------- */
+  .v2-front{background:linear-gradient(160deg,var(--aqua-100),var(--white) 60%);padding:38px 44px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+  .v2-front .logo-ja{font-family:var(--serif);font-size:2.9rem;letter-spacing:.2em;color:var(--ink)}
+  .v2-front .logo-en{font-family:var(--latin);font-style:italic;font-size:1.05rem;color:var(--aqua-600);letter-spacing:.12em}
+  .v2-front .name{font-family:var(--serif);font-size:1.3rem;letter-spacing:.14em}
+  .v2-front .name-en{font-family:var(--latin);font-style:italic;font-size:.9rem;color:var(--ink-light)}
+  .v2-front .role{font-size:.7rem;color:var(--ink-light);letter-spacing:.1em;margin-top:5px}
+  .v2-front .bottom{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:2}
+  .v2-back{background:var(--aqua-600);display:flex;flex-direction:column;justify-content:center;padding:40px 44px;position:relative;overflow:hidden}
+  .v2-back .mark{font-family:var(--serif);font-size:3rem;letter-spacing:.2em;color:#fff}
+  .v2-back .mark-en{font-family:var(--latin);font-style:italic;font-size:1rem;color:var(--aqua-200);letter-spacing:.2em;margin-bottom:18px}
+  .v2-back .contact{color:rgba(255,255,255,.92)}
+  .v2-back .contact .lbl{color:var(--aqua-200)}
+  .v2-back .tagline{font-family:var(--serif);font-size:.78rem;color:var(--aqua-200);letter-spacing:.08em;margin-top:16px}
+
+  /* ---------- Variant 3 : 縁 (dark, bold) ---------- */
+  .v3-front{background:var(--ink);padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .v3-front .logo-ja{font-family:var(--serif);font-weight:500;font-size:3.6rem;letter-spacing:.2em;color:var(--white)}
+  .v3-front .logo-en{font-family:var(--latin);font-style:italic;font-size:1.15rem;color:var(--aqua-400);letter-spacing:.12em;margin-top:6px}
+  .v3-front .tagline{font-family:var(--serif);font-size:.8rem;color:var(--sand-300);letter-spacing:.08em}
+  .v3-front .seal{position:absolute;right:38px;top:50%;transform:translateY(-50%);width:78px;height:78px;border:1px solid var(--aqua-400);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2rem;color:var(--aqua-400)}
+  .v3-back{background:var(--off-white);padding:40px 44px;display:flex;flex-direction:column;justify-content:space-between}
+  .v3-back .name{font-family:var(--serif);font-size:1.5rem;letter-spacing:.14em}
+  .v3-back .name-en{font-family:var(--latin);font-style:italic;font-size:.95rem;color:var(--ink-light);margin-top:2px}
+  .v3-back .role{font-size:.72rem;color:var(--ink-light);letter-spacing:.1em;margin-top:6px}
+  .v3-back .rule{width:34px;height:1px;background:var(--aqua-400);margin:16px 0}
+
+  .note{max-width:760px;margin:80px auto 0;background:var(--white);border-radius:12px;padding:28px 32px;box-shadow:0 4px 24px rgba(42,39,35,.07);font-size:.86rem;color:var(--ink-light)}
+  .note h3{font-family:var(--serif);font-size:1rem;color:var(--ink);margin-bottom:12px;letter-spacing:.04em}
+  .note ul{margin:0 0 0 18px}
+  .note li{margin-bottom:7px}
+  .note b{color:var(--ink);font-weight:500}
+  @media(max-width:600px){.card{transform:scale(.62);transform-origin:top center;margin-bottom:-120px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="page-head">
+    <div class="ja">湯縁</div>
+    <div class="en">Yu-en — Business Card Concepts</div>
+  </div>
+  <p class="page-sub">サイトと同じ配色（生成り×杏色×墨）とフォント（FOT-筑紫ゴシックStd）で、3つの方向性の名刺案をご用意しました。表裏セットで原寸（91×55mm）の比率で表示しています。</p>
+  <p class="spec">日本標準サイズ 91 × 55 mm ／ 縦横比そのまま</p>
+
+  <!-- ============ Variant 1 ============ -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="variant-no">01</span>
+      <span class="variant-name">静 — ミニマル・セリフ</span>
+      <span class="variant-desc">余白を大きく取った、最も上品で落ち着いた案。建築家の名刺の王道。</span>
+    </div>
+    <div class="cards">
+      <div class="card-col">
+        <span class="card-label">表 / front</span>
+        <div class="card v1-front">
+          <div class="top">
+            <div>
+              <div class="logo-ja">湯縁</div>
+              <div class="logo-en">Yu-en</div>
+            </div>
+            <div class="tagline">ひとをゆるめ、<br>めぐらせる場をつくる</div>
+          </div>
+          <div>
+            <div class="rule"></div>
+            <div class="name">法橋 礼歩</div>
+            <div class="name-en">Ayato Hokkyo</div>
+            <div class="role">建築家 ／ プロダクトデザイナー</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-col">
+        <span class="card-label">裏 / back</span>
+        <div class="card v1-back">
+          <div class="mark">湯縁</div>
+          <div class="mark-en">Y U - E N</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Variant 2 ============ -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="variant-no">02</span>
+      <span class="variant-name">湯気 — アクア・グラデーション</span>
+      <span class="variant-desc">湯気が立ちのぼるような淡いアクアの階調。裏面はアクア地に白文字で連絡先をまとめた実用型。</span>
+    </div>
+    <div class="cards">
+      <div class="card-col">
+        <span class="card-label">表 / front</span>
+        <div class="card v2-front">
+          <svg class="steam" style="right:30px;top:18px;width:120px;height:150px" viewBox="0 0 120 150">
+            <path d="M30 140 C10 110 50 100 30 70 C15 45 50 35 35 8" stroke="#F2C9A5" stroke-width="1.5"/>
+            <path d="M70 140 C50 108 92 98 72 66 C56 40 92 30 78 4" stroke="#F2C9A5" stroke-width="1.5"/>
+            <path d="M105 140 C88 112 120 102 102 74" stroke="#F2C9A5" stroke-width="1.5"/>
+          </svg>
+          <div>
+            <div class="logo-ja">湯縁</div>
+            <div class="logo-en">Yu-en</div>
+          </div>
+          <div class="bottom">
+            <div>
+              <div class="name">法橋 礼歩</div>
+              <div class="name-en">Ayato Hokkyo</div>
+              <div class="role">建築家 ／ プロダクトデザイナー</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-col">
+        <span class="card-label">裏 / back</span>
+        <div class="card v2-back">
+          <div class="mark">湯縁</div>
+          <div class="mark-en">Y U - E N</div>
+          <div class="contact">
+            <div><span class="lbl">Web</span>example.com（サイトURL）</div>
+            <div><span class="lbl">Mail</span>yuen.designstudio@gmail.com</div>
+            <div><span class="lbl">Insta</span>@（アカウント）</div>
+          </div>
+          <div class="tagline">ひとをゆるめ、めぐらせる場をつくる</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Variant 3 ============ -->
+  <section class="variant">
+    <div class="variant-head">
+      <span class="variant-no">03</span>
+      <span class="variant-name">縁 — ダーク・印象型</span>
+      <span class="variant-desc">墨地に白の「湯縁」と落款風の丸印。記憶に残るインパクト重視。裏面は明るい砂色で読みやすく。</span>
+    </div>
+    <div class="cards">
+      <div class="card-col">
+        <span class="card-label">表 / front</span>
+        <div class="card v3-front">
+          <div class="seal">縁</div>
+          <div>
+            <div class="logo-ja">湯縁</div>
+            <div class="logo-en">Yu-en</div>
+          </div>
+          <div class="tagline">ひとをゆるめ、めぐらせる場をつくる</div>
+        </div>
+      </div>
+      <div class="card-col">
+        <span class="card-label">裏 / back</span>
+        <div class="card v3-back">
+          <div>
+            <div class="name">法橋 礼歩</div>
+            <div class="name-en">Ayato Hokkyo</div>
+            <div class="role">建築家 ／ プロダクトデザイナー</div>
+            <div class="rule"></div>
+          </div>
+          <div class="contact">
+            <div><span class="lbl">Web</span>example.com（サイトURL）</div>
+            <div><span class="lbl">Mail</span>yuen.designstudio@gmail.com</div>
+            <div><span class="lbl">Insta</span>@（アカウント）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="note">
+    <h3>確認したいこと</h3>
+    <ul>
+      <li><b>連絡先</b>：サイトURL（独自ドメイン？）、Instagram・noteのアカウント名、電話番号を載せるか、を教えてください。今は仮表示です。</li>
+      <li><b>肩書き</b>：「建築家／プロダクトデザイナー」でOKか。隈研吾事務所所属を記載するかどうか。</li>
+      <li><b>メール</b>：yuen.designstudio@gmail.com をそのまま載せて良いか（専用アドレスにするか）。</li>
+      <li><b>BASE</b>：2026-09-08にショップを閉じる決定。名刺にShop欄は設けない。</li>
+      <li><b>方向性</b>：01／02／03 のどれを軸に進めるか。気に入った要素の組み合わせも可能です。</li>
+    </ul>
+    <p style="margin-top:14px">決定後、<b>印刷用PDF（塗り足し3mm・トンボ付き・CMYK想定）</b>に書き出してそのまま入稿できる形にします。</p>
+  </div>
+
+</div>
+</body>
+</html>
