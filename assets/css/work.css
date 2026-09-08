@@ -13,7 +13,7 @@ body{font-family:var(--font);color:var(--ink);background:var(--paper);
 h1,h2,h3,.serif{font-family:var(--font);font-weight:400}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
 
 /* header */
 header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
@@ -61,7 +61,6 @@ footer.site{background:var(--ink);color:#B8B1A6;text-align:center;padding:40px 0
   .work-head{padding:58px 0 8px}
 }
 @media(max-width:640px){
-  .wrap{padding:0 20px}
   header{padding:14px 20px}
   .work-hero img,.work-hero .ph{height:40vh}
   .work-head{padding:44px 0 6px}
