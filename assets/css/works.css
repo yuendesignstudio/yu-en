@@ -76,20 +76,3 @@
   .work-card{ height:62vh !important; min-height:340px !important; }
   .work-cap{ max-width:92%; }
 }
-
-/* ==========================================================
-   Works の文字は「しっぽり明朝」（2026-09-09）
-   当初は はんなり明朝 を予定したが、Google Fonts Early Access が
-   フォント本体の配信を終えており（CSSは200だがwoff2/woff/ttfが取得不可）、
-   黙って別の明朝に化けるため、確実に配信されている しっぽり明朝 に変更。
-   届かない環境では Noto Serif JP → 游明朝 → ヒラギノ明朝 の順に落ちる。
-   ========================================================== */
-.work-cap,
-.work-head h1, .work-head .cat, .work-head .enname, .work-head .meta,
-.work-desc p{
-  font-family:"Shippori Mincho","Noto Serif JP","Yu Mincho","YuMincho",
-              "Hiragino Mincho ProN","ヒラギノ明朝 ProN",serif;
-}
-/* 明朝に斜体は無いので、寝かせずに字間で見せる */
-.work-cap .work-en{ font-style:normal; letter-spacing:.07em; }
-.work-head .enname{ font-style:normal; letter-spacing:.06em; }
