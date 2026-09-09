@@ -157,8 +157,10 @@
   .contact{text-align:center}
   .contact h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:300;line-height:1.8;letter-spacing:.05em}
   /* 3行を左揃えにしたまま、かたまりごと中央に置く */
-  .contact .lead3{display:inline-block;text-align:left;max-width:100%;margin:22px auto 0;
+  .contact .lead3{display:table;text-align:left;max-width:100%;margin:22px auto 0;
     color:var(--ink-soft);font-size:.96rem;white-space:nowrap}
+  .contact .en-line{display:block}
+  .contact .btn{display:table;margin-left:auto;margin-right:auto}
   .btn{display:inline-block;margin-top:38px;border:1px solid var(--ink);color:var(--ink);
     padding:16px 46px;font-size:.86rem;letter-spacing:.18em;transition:background .4s,color .4s}
   .btn:hover{background:var(--ink);color:var(--paper)}
@@ -448,7 +450,7 @@
 <section class="contact" id="contact">
   <div class="wrap">
     <p class="lead3">家やお店の改修、銭湯や古い建物のこと、家具のこと。<br>何から考えればいいか分からない段階でも大丈夫です。<br>ゆっくりご一緒します。</p>
-    <a class="btn" href="#" data-form>お問い合わせ</a>
+    <a class="btn" href="contact.html">お問い合わせ</a>
     <p class="en-line">Let's tend something, together.</p>
   </div>
 </section>
@@ -483,10 +485,7 @@
 
 <script>
   // ヘッダーは共通の assets/css/header.css で常に地色が入るため、スクロール処理は不要
-  document.querySelectorAll('[data-form]').forEach(b=>b.addEventListener('click',e=>{
-    e.preventDefault();
-    alert('お問い合わせフォームは公開時に有効化されます（準備中）。\');
-  }));
+  
 </script>
 </body>
 </html>
