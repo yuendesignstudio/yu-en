@@ -96,3 +96,21 @@
 /* 明朝に斜体は無いので、寝かせずに字間で見せる */
 .work-cap .work-en{ font-style:normal; letter-spacing:.07em; }
 .work-head .enname{ font-style:normal; letter-spacing:.06em; }
+
+/* 作品名の色（2026-09-09）
+   写真の多くが明るいので、作品名は黒を既定にする。
+   Karan Products だけ写真が暗いので白のまま残す。 */
+.work-card::before{ display:none; }
+.work-cap{ color:#26231F; text-shadow:none; }
+.work-cap .work-title{ color:#26231F; }
+.work-cap .work-en{ color:#6B655C; }
+.work-cap .work-meta{ color:#6B655C; }
+
+.work-card[href*="karan"]::before{
+  display:block;
+  background:linear-gradient(180deg, rgba(22,20,17,.5), rgba(22,20,17,0));
+}
+.work-card[href*="karan"] .work-cap{ color:#fff; text-shadow:0 1px 16px rgba(0,0,0,.34); }
+.work-card[href*="karan"] .work-cap .work-title{ color:#fff; }
+.work-card[href*="karan"] .work-cap .work-en{ color:rgba(255,255,255,.86); }
+.work-card[href*="karan"] .work-cap .work-meta{ color:rgba(255,255,255,.8); }
