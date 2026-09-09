@@ -38,10 +38,12 @@
   z-index:1; pointer-events:none;
 }
 
-/* 作品名（左上） */
+/* 作品名（左上）
+   ヘッダーが画面上部に貼りつくため、その高さ（約76px）を避けて置く。
+   これを入れないと、写真が画面の頭に来たとき作品名がヘッダーに隠れる。 */
 .work-cap{
   position:absolute; z-index:2;
-  top:clamp(1.3rem, 3.2vw, 2.7rem);
+  top:calc(76px + clamp(1rem, 2.4vw, 1.9rem));
   left:clamp(1.3rem, 3.2vw, 2.7rem);
   max-width:min(88%, 42rem);
   color:#fff;
@@ -73,5 +75,5 @@
 
 @media (max-width:767px){
   .work-card{ height:62vh !important; min-height:340px !important; }
-  .work-cap{ max-width:92%; }
+  .work-cap{ max-width:92%; top:calc(100px + .8rem); }
 }
