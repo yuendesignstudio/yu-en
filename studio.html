@@ -157,7 +157,7 @@
   .contact{text-align:center}
   .contact h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:300;line-height:1.8;letter-spacing:.05em}
   /* 3行を左揃えにしたまま、かたまりごと中央に置く */
-  .contact p{display:inline-block;text-align:left;max-width:100%;margin:22px auto 0;
+  .contact .lead3{display:inline-block;text-align:left;max-width:100%;margin:22px auto 0;
     color:var(--ink-soft);font-size:.96rem;white-space:nowrap}
   .btn{display:inline-block;margin-top:38px;border:1px solid var(--ink);color:var(--ink);
     padding:16px 46px;font-size:.86rem;letter-spacing:.18em;transition:background .4s,color .4s}
@@ -165,7 +165,7 @@
   .contact .mailto{margin-top:22px;font-family:var(--font);font-size:1.02rem;
     letter-spacing:.06em}
   .contact .mailto a{color:var(--accent-ink);border-bottom:1px solid var(--accent);padding-bottom:2px}
-  .contact .en-line{margin-top:28px;font-style:italic;color:var(--accent-ink)}
+  .contact .en-line{display:block;margin-top:28px;font-style:italic;color:var(--accent-ink)}
 
   footer{background:var(--ink);color:var(--paper);padding:70px 0 38px;font-size:.85rem}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
@@ -242,7 +242,7 @@
     .tl-item{grid-template-columns:72px 1fr;gap:12px;font-size:.82rem;margin-bottom:16px}
     .aw{grid-template-columns:56px 1fr;gap:14px}
     .pbox{padding:22px 20px}
-    .contact p{white-space:normal;max-width:30em;text-align:center}
+    .contact .lead3{white-space:normal;max-width:30em;text-align:center}
     .contact .mailto{font-size:.94rem;word-break:break-all}
     .btn{padding:14px 32px;margin-top:30px}
     .pbox{padding:20px}
@@ -447,9 +447,8 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <p>家やお店の改修、銭湯や古い建物のこと、家具のこと。<br>何から考えればいいか分からない段階でも大丈夫です。<br>ゆっくりご一緒します。</p>
+    <p class="lead3">家やお店の改修、銭湯や古い建物のこと、家具のこと。<br>何から考えればいいか分からない段階でも大丈夫です。<br>ゆっくりご一緒します。</p>
     <a class="btn" href="#" data-form>お問い合わせ</a>
-    <p class="mailto"><a href="mailto:yuen.designstudio@gmail.com">yuen.designstudio@gmail.com</a></p>
     <p class="en-line">Let's tend something, together.</p>
   </div>
 </section>
@@ -460,19 +459,18 @@
     <div class="foot-grid">
       <div>
         <h4>YU-EN Design Studio</h4>
-        <p style="color:#B8B1A6;max-width:24em">世話をするほど、愛着をもてる建築を。銭湯の上で暮らす建築家・法橋礼歩による設計スタジオ。</p>
+        <p style="color:#B8B1A6;max-width:24em">世話をするほど、愛着をもてる建築を。</p>
       </div>
       <div>
         <h4>Brands</h4>
         <div class="brands">
-          <a href="index.html"><strong>YU-EN Design Studio</strong><span class="sub">世話する建築 ・ 設計</span></a>
+          <a href="index.html"><strong>YU-EN Design Studio</strong><span class="sub">世話する建築デザイン</span></a>
           <a href="karan-products/index.html"><strong>Karan Products</strong><span class="sub">古材の一点物 ・ 家具 ・ ワークショップ</span></a>
         </div>
       </div>
       <div>
         <h4>Follow</h4>
         <ul>
-          <li><a href="mailto:yuen.designstudio@gmail.com">yuen.designstudio@gmail.com</a></li>
           <li><a href="https://note.com/orehokkyo" target="_blank" rel="noopener">note</a></li>
           <li><a href="#">Instagram</a></li>
           <li><a href="#">YouTube</a></li>
@@ -487,7 +485,7 @@
   // ヘッダーは共通の assets/css/header.css で常に地色が入るため、スクロール処理は不要
   document.querySelectorAll('[data-form]').forEach(b=>b.addEventListener('click',e=>{
     e.preventDefault();
-    alert('お問い合わせフォームは公開時に有効化されます（準備中）。\\nメール: yuen.designstudio@gmail.com');
+    alert('お問い合わせフォームは公開時に有効化されます（準備中）。\');
   }));
 </script>
 </body>
