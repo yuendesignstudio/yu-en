@@ -16,7 +16,7 @@
       <a href="index.html" class="logo">Karan Products</a>
       <nav class="site-nav">
         <ul>
-          <li><a href="items.html" class="active">Shop</a></li>
+          <li><a href="items.html" class="active">Items</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li class="lang-switch">
             <a href="../items.html">JP</a>
@@ -30,7 +30,7 @@
 
   <div class="page-top">
     <div class="page-top-inner">
-      <p class="hero-label">Shop</p>
+      <p class="hero-label">Items</p>
       <h1 class="page-title">All Items</h1>
       <p class="concept-text" style="margin-top:20px;">
         All pieces are made to order, one at a time. Prices are not listed —<br>
@@ -41,10 +41,9 @@
 
   <div class="section">
     <div class="filter-row">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Kitchen</button>
-      <button class="filter-btn">Living</button>
-      <button class="filter-btn">Textile</button>
+      <button class="filter-btn active" data-cat="">All</button>
+      <button class="filter-btn" data-cat="古材の一点もの">Salvaged one-offs</button>
+      <button class="filter-btn" data-cat="受注制作の家具">Made-to-order furniture</button>
     </div>
 
     <p class="item-count" style="margin-top: 16px;">0 items</p>
@@ -59,22 +58,32 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-logo">Karan Products</div>
-      <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Legal Notice</a>
+            <div class="footer-links">
+        <a href="../tokushoho.html">Legal Notice (JP)</a>
+        <a href="../privacy.html">Privacy Policy (JP)</a>
+        <a href="../terms.html">Terms of Use (JP)</a>
         <a href="contact.html">Contact</a>
       </div>
-      <p class="footer-copy">&copy; 2026 Karan Products</p>
+      <p class="footer-copy">&copy; 2026 Karan Products ／ YU-EN DESIGN STUDIO</p>
     </div>
   </footer>
 
   <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    function apply(cat) {
+      document.querySelectorAll('.filter-btn').forEach(b =>
+        b.classList.toggle('active', (b.dataset.cat || '') === cat));
+      var n = 0;
+      document.querySelectorAll('.product-card').forEach(c => {
+        var show = !cat || c.dataset.cat === cat;
+        c.style.display = show ? '' : 'none';
+        if (show) n++;
       });
-    });
+      var cnt = document.querySelector('.item-count');
+      if (cnt) cnt.textContent = n + ' items';
+    }
+    document.querySelectorAll('.filter-btn').forEach(btn =>
+      btn.addEventListener('click', () => apply(btn.dataset.cat || '')));
+    apply(new URLSearchParams(location.search).get('cat') || '');
   </script>
 </body>
 </html>
