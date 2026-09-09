@@ -1,0 +1,28 @@
+/* ==========================================================
+   YU-EN DESIGN STUDIO ｜ 共通フッター（2026-09-09）
+   全ページで同じ形にするための1枚。各ページのCSSより後に読む。
+   ========================================================== */
+.yfoot{background:#26231F;color:#B8B1A6;padding:70px 0 38px;
+  font-size:.85rem;line-height:2;letter-spacing:.03em;text-align:left}
+.yfoot-inner{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
+.yfoot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
+.yfoot h4{font-size:1.05rem;font-weight:400;letter-spacing:.12em;
+  color:#F6F2EA;margin:0 0 16px;font-style:normal}
+.yfoot p{margin:0}
+.yfoot-brand p{color:#B8B1A6;max-width:24em}
+.yfoot-brands a{display:block;padding:12px 0;color:#F6F2EA;text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.12);transition:opacity .3s}
+.yfoot-brands a:hover{opacity:.75}
+.yfoot-brands strong{font-weight:400}
+.yfoot-brands span{display:block;font-size:.72rem;color:#8E877C;line-height:1.7}
+.yfoot-sns{display:flex;align-items:center;gap:22px;margin-top:2px}
+.yfoot-sns a{color:#B8B1A6;transition:color .3s;line-height:0;display:block}
+.yfoot-sns a:hover{color:#F6F2EA}
+.yfoot-sns svg{display:block}
+.yfoot-copy{text-align:center;color:#8E877C;font-size:.72rem;
+  padding-top:26px;border-top:1px solid rgba(255,255,255,.1)}
+@media(max-width:860px){ .yfoot-grid{grid-template-columns:1.4fr 1fr;gap:36px} }
+@media(max-width:640px){
+  .yfoot{padding:56px 0 30px}
+  .yfoot-grid{grid-template-columns:1fr;gap:30px;margin-bottom:34px}
+}
