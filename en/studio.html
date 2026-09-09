@@ -123,7 +123,8 @@
   .btn:hover{background:var(--ink);color:var(--paper)}
   .contact .mailto{margin-top:20px;font-family:var(--font);font-size:1rem;letter-spacing:.06em}
   .contact .mailto a{color:var(--accent-ink);border-bottom:1px solid var(--accent);padding-bottom:2px}
-  .contact .en-line{margin-top:26px;font-family:var(--font);color:var(--accent-ink);font-size:.95rem}
+  .contact .btn{display:table;margin-left:auto;margin-right:auto}
+  .contact .en-line{display:block;margin-top:26px;font-family:var(--font);color:var(--accent-ink);font-size:.95rem}
 
   footer{background:var(--ink);color:var(--paper);padding:70px 0 38px;font-size:.88rem}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
@@ -348,7 +349,7 @@
     <div class="sec-label" style="justify-content:center"><span class="num">05</span><h2 style="margin:0">Contact</h2></div>
     <h2>Let's talk for 15 minutes.</h2>
     <p>Renovating a home or shop, an old building, a bathhouse, a piece of furniture. Even if you don't yet know where to begin, that's perfectly fine. We'll take it slowly, together.</p>
-    <a class="btn" href="#" data-form>Get in touch</a>
+    <a class="btn" href="contact.html">Get in touch</a>
     <p class="en-line">Let's tend something, together.</p>
   </div>
 </section>
@@ -383,10 +384,7 @@
 
 <script>
   // ヘッダーは共通の assets/css/header.css で常に地色が入るため、スクロール処理は不要
-  document.querySelectorAll('[data-form]').forEach(b=>b.addEventListener('click',e=>{
-    e.preventDefault();
-    alert('The contact form will go live at launch (coming soon).\');
-  }));
+  
 </script>
 </body>
 </html>
