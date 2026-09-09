@@ -258,6 +258,36 @@
     nav ul{gap:11px;font-size:.64rem}
     .word .la{font-size:.5rem;letter-spacing:.26em}
   }
+
+  /* ==========================================================
+     スマホでも「指定した位置だけで改行する」（2026-09-09）
+     ・折り返させず、画面幅に収まるまで文字を小さくする
+     ・--fit = .wrap の中で実際に使える横幅
+     ========================================================== */
+  @media(max-width:767px){
+    :root{ --fit: min(90vw, calc(100vw - 40px)); }
+    .hero p.lead{
+      white-space:nowrap;
+      font-size:min(.94rem, calc(var(--fit) / 25.7));
+    }
+    .philo .body .close{
+      white-space:nowrap !important;
+      font-size:min(1.06rem, calc(var(--fit) / 30.3));
+      line-height:2.1;
+    }
+    .sec-label h2{
+      white-space:nowrap;
+      font-size:min(1.4rem, calc((var(--fit) - 44px) / 15.3));
+    }
+    .contact .lead3{
+      white-space:nowrap !important;
+      text-align:left !important;
+      max-width:none !important;
+      display:table; margin:22px auto 0;
+      font-size:min(.96rem, calc(var(--fit) / 26.8));
+    }
+    .contact .btn{display:table;margin-left:auto;margin-right:auto}
+  }
 </style>
   <link rel="stylesheet" href="assets/css/header.css?v=2">
 <meta property="og:type" content="website">
