@@ -1,0 +1,77 @@
+/* ==========================================================
+   YU-EN DESIGN STUDIO ｜ 作品一覧（フレームレス・2026-09-09）
+   写真を画面いっぱいに。枠・影・角丸をなくし、作品名を左上に置く。
+   site.css / header.css より「後に」読み込むこと。
+   ========================================================== */
+
+/* 画面の端まで写真を出す */
+.works .section-inner{
+  max-width:none !important;
+  padding:0 !important;
+}
+.works-grid{ gap:0 !important; margin:0 !important; }
+
+/* カード＝1枚の写真。枠をなくす */
+.work-card{
+  height:88vh !important;
+  min-height:520px !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  transform:none !important;
+  transition:none !important;
+}
+.work-card:hover{ transform:none !important; box-shadow:none !important; }
+
+.work-img{ background:#E7E1D6; }
+.work-img img{ transition:transform 1.4s cubic-bezier(.22,.61,.36,1); }
+.work-card:hover .work-img img{ transform:scale(1.035); }
+
+/* 古い中央オーバーレイと湯気は使わない */
+.work-card .work-overlay,
+.work-card .work-steam{ display:none !important; }
+
+/* 左上のキャプションが写真に沈まないよう、上だけ淡く落とす */
+.work-card::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:44%;
+  background:linear-gradient(180deg, rgba(22,20,17,.46), rgba(22,20,17,0));
+  z-index:1; pointer-events:none;
+}
+
+/* 作品名（左上） */
+.work-cap{
+  position:absolute; z-index:2;
+  top:clamp(1.3rem, 3.2vw, 2.7rem);
+  left:clamp(1.3rem, 3.2vw, 2.7rem);
+  max-width:min(88%, 42rem);
+  color:#fff;
+  text-shadow:0 1px 16px rgba(0,0,0,.34);
+}
+.work-cap .work-title{
+  margin:0; color:#fff; font-weight:400;
+  font-size:clamp(1.35rem, 2.9vw, 2.35rem);
+  letter-spacing:.05em; line-height:1.35;
+}
+.work-cap .work-en{
+  display:block; margin-top:.34rem;
+  font-style:italic; letter-spacing:.03em;
+  font-size:clamp(.82rem, 1.35vw, 1.02rem);
+  color:rgba(255,255,255,.86);
+}
+.work-cap .work-meta{
+  margin:.75rem 0 0; color:rgba(255,255,255,.8);
+  font-size:clamp(.7rem, 1.05vw, .8rem);
+  letter-spacing:.11em; line-height:1.8;
+}
+
+/* 写真が入るまでの仮画像は淡いので、キャプションを黒にして読ませる */
+.work-card.is-placeholder::before{ display:none; }
+.work-card.is-placeholder .work-cap{ color:#26231F; text-shadow:none; }
+.work-card.is-placeholder .work-cap .work-title{ color:#26231F; }
+.work-card.is-placeholder .work-cap .work-en{ color:#6B655C; }
+.work-card.is-placeholder .work-cap .work-meta{ color:#6B655C; }
+
+@media (max-width:767px){
+  .work-card{ height:62vh !important; min-height:340px !important; }
+  .work-cap{ max-width:92%; }
+}
