@@ -39,10 +39,12 @@
   z-index:1; pointer-events:none;
 }
 
-/* 作品名（左上） */
+/* 作品名（左上）
+   ヘッダーが画面上部に貼りつくため、その高さ（約76px）を避けて置く。
+   これを入れないと、写真が画面の頭に来たとき作品名がヘッダーに隠れる。 */
 .work-cap{
   position:absolute; z-index:2;
-  top:clamp(1.3rem, 3.2vw, 2.7rem);
+  top:calc(76px + clamp(1rem, 2.4vw, 1.9rem));
   left:clamp(1.3rem, 3.2vw, 2.7rem);
   max-width:min(88%, 42rem);
   color:#fff;
@@ -55,7 +57,7 @@
 }
 .work-cap .work-en{
   display:block; margin-top:.34rem;
-  font-style:italic; letter-spacing:.03em;
+  letter-spacing:.03em;
   font-size:clamp(.82rem, 1.35vw, 1.02rem);
   color:rgba(255,255,255,.86);
 }
@@ -74,5 +76,23 @@
 
 @media (max-width:767px){
   .work-card{ height:62vh !important; min-height:340px !important; }
-  .work-cap{ max-width:92%; }
+  .work-cap{ max-width:92%; top:calc(100px + .8rem); }
 }
+
+/* ==========================================================
+   Works の文字は「しっぽり明朝」（2026-09-09）
+   当初は はんなり明朝 を予定したが、Google Fonts Early Access が
+   フォント本体の配信を終えており（CSSは200だが woff2/woff/ttf が取得不可）、
+   黙って別の明朝に化けるため、確実に配信されている しっぽり明朝 に変更。
+   届かない環境では Noto Serif JP → 游明朝 → ヒラギノ明朝 の順に落ちる。
+   ========================================================== */
+.work-cap,
+.work-cap .work-title, .work-cap .work-en, .work-cap .work-meta,
+.work-head h1, .work-head .cat, .work-head .enname, .work-head .meta,
+.work-desc p, .work-desc .note{
+  font-family:"Shippori Mincho","Noto Serif JP","Yu Mincho","YuMincho",
+              "Hiragino Mincho ProN","ヒラギノ明朝 ProN",serif !important;
+}
+/* 明朝に斜体は無いので、寝かせずに字間で見せる */
+.work-cap .work-en{ font-style:normal; letter-spacing:.07em; }
+.work-head .enname{ font-style:normal; letter-spacing:.06em; }
