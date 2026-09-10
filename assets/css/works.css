@@ -99,3 +99,17 @@
               "Hiragino Mincho ProN","ヒラギノ明朝 ProN",serif !important;
 }
 .work-head .enname{ font-style:normal; letter-spacing:.06em; }
+
+/* ==========================================================
+   題名の上に置く小さな種別（2026-09-10 オーナー指示）
+   コンペ提案には "Competition" と出し、実作と性格の違いを示す。
+   一覧に見出しは挟まない方針なので、この1行が唯一の区別になる。
+   ========================================================== */
+.work-cap .work-kind{
+  display:block; margin:0 0 .5rem;
+  font-size:clamp(.62rem, .95vw, .72rem);
+  letter-spacing:.26em; text-transform:uppercase;
+  color:#6B655C;
+  font-family:"Noto Sans JP","Yu Gothic",sans-serif;
+}
+.work-card[href*="karan"] .work-cap .work-kind{ color:rgba(255,255,255,.82); }
