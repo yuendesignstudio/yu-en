@@ -115,38 +115,36 @@
 .work-card[href*="karan"] .work-cap .work-kind{ color:rgba(255,255,255,.82); }
 
 /* ==========================================================
-   1作品＝1画面（2026-09-11）
+   1作品＝1画面＋吸着は、パソコンだけ（2026-09-11 オーナー指示）
+
    参考にした masayasuzuki.jp は吸着（scroll-snap）はしておらず、
    1作品をちょうど 100vh にしているだけだった。湯縁は 88vh だったので
-   常に次の写真が下に覗き、どこにも揃わなかった。まずそこを直す。
-   高さを揃えるのは画面幅にかかわらず行う（スマホでも1枚ずつ見える）。
+   常に次の写真が下に覗き、どこにも揃わなかった。それが「流れて見える」原因。
+
+   ただしスマホとiPadは流れる見え方のままでよい、というオーナーの判断。
+   指の勢い（慣性スクロール）と吸着は喧嘩して、引っかかるというより
+   引き戻される感じになる。
+
+   そこで画面幅だけでは分けない。iPad Pro は横向きで 1366px あり、
+   幅で切るとパソコン扱いになってしまう。
+   代わりに「マウスの当たる画面か」で分ける：
+     hover:hover  … ポインタを乗せたままにできる（マウス／トラックパッド）
+     pointer:fine … 細かく指せる（指はふつう coarse）
+   指で触る画面はここに入らないので、吸着も 100vh も効かない。
+   幅 1024px 以上も併せて条件にして、小さなウィンドウでは効かせない。
+
+   :has() で囲うのは、works.css を読む作品詳細ページには効かせないため。
    ========================================================== */
-.work-card{
-  height:100vh !important;
-  height:100svh !important;      /* スマホのアドレスバーで高さが揺れないように */
-  min-height:0 !important;
-}
-@media (max-width:767px){
+@media (min-width:1024px) and (hover:hover) and (pointer:fine){
   .work-card{
     height:100vh !important;
     height:100svh !important;
     min-height:0 !important;
-  }
-}
-
-/* ==========================================================
-   吸着はパソコンだけ（2026-09-11 オーナー指示）
-   スマホでは指の勢い（慣性スクロール）と吸着が喧嘩して、
-   引っかかるというより引き戻される感じになる。だから 768px 以上に限る。
-   :has() で囲うのは、works.css を読む作品詳細ページには効かせないため。
-   ========================================================== */
-@media (min-width:768px){
-  html:has(.works-grid){
-    scroll-snap-type: y mandatory;
-  }
-  .work-card{
     scroll-snap-align: start;
     scroll-snap-stop: always;    /* 勢いよく回しても飛ばしにくい */
+  }
+  html:has(.works-grid){
+    scroll-snap-type: y mandatory;
   }
   /* フッターも1画面ぶんの止まり位置にする。
      吸着が mandatory のとき、止まり位置になっていない場所には落ち着けない。
@@ -160,8 +158,8 @@
     scroll-snap-align: start;
   }
 }
-/* 動きを減らす設定の人には吸着をかけない */
-@media (min-width:768px) and (prefers-reduced-motion:reduce){
+/* 動きを減らす設定の人には吸着をかけない（高さはそのまま） */
+@media (min-width:1024px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:reduce){
   html:has(.works-grid){ scroll-snap-type: none; }
   html:has(.works-grid) .yfoot{ min-height:0; display:block; }
 }
