@@ -113,3 +113,44 @@
   font-family:"Noto Sans JP","Yu Gothic",sans-serif;
 }
 .work-card[href*="karan"] .work-cap .work-kind{ color:rgba(255,255,255,.82); }
+
+/* ==========================================================
+   1作品＝1画面。スクロールするたびに次の作品で止まる（2026-09-11）
+   参考にした masayasuzuki.jp は吸着（scroll-snap）はしておらず、
+   1作品をちょうど 100vh にしているだけだった。湯縁は 88vh だったので
+   常に次の写真が下に覗き、どこにも揃わなかった。まずそこを直す。
+   そのうえで吸着を足し、一枚ずつ「引っかかる」ようにする。
+   :has() で囲うのは、works.css を読む作品詳細ページには吸着を効かせないため。
+   ========================================================== */
+html:has(.works-grid){
+  scroll-snap-type: y mandatory;
+}
+.work-card{
+  height:100vh !important;
+  height:100svh !important;      /* スマホのアドレスバーで高さが揺れないように */
+  min-height:0 !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;      /* 勢いよく回しても飛ばしにくい */
+}
+/* フッターも1画面ぶんの止まり位置にする。
+   吸着が mandatory のとき、止まり位置になっていない場所には落ち着けない。
+   フッターが1画面より低いと最後まで下がれず、著作権表示が切れて見えなくなる。
+   +4px はスクロールの上限を止まり位置より数px下に置くための余白
+   （端数の丸めで止まり位置が上限を1px超えると、そこへ行けなくなる）。 */
+html:has(.works-grid) .yfoot{
+  min-height:calc(100vh + 4px);
+  min-height:calc(100svh + 4px);
+  display:flex; align-items:center;
+  scroll-snap-align: start;
+}
+@media (max-width:767px){
+  .work-card{
+    height:100vh !important;
+    height:100svh !important;
+    min-height:0 !important;
+  }
+}
+/* 動きを減らす設定の人には吸着をかけない */
+@media (prefers-reduced-motion:reduce){
+  html:has(.works-grid){ scroll-snap-type: none; }
+}
