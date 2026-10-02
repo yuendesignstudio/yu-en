@@ -19,7 +19,7 @@
 }
 .work-card:hover{ transform:none !important; box-shadow:none !important; }
 
-.work-img{ background:#E7E1D6; }
+.work-img{ background:#C9DAD7; }
 .work-img img{ transition:transform 1.4s cubic-bezier(.22,.61,.36,1); }
 .work-card:hover .work-img img{ transform:scale(1.035); }
 
@@ -33,7 +33,7 @@
   content:"";
   position:absolute; top:0; left:0; right:0;
   height:clamp(200px, 46%, 440px);
-  background:linear-gradient(180deg, rgba(246,242,234,.74), rgba(246,242,234,.30) 55%, rgba(246,242,234,0));
+  background:linear-gradient(180deg, rgba(237,239,234,.74), rgba(237,239,234,.30) 55%, rgba(237,239,234,0));
   z-index:1; pointer-events:none;
 }
 
@@ -50,7 +50,7 @@
 .work-cap .work-title,
 .work-cap .work-en,
 .work-cap .work-meta{
-  color:#26231F;
+  color:#314E4D;
   text-shadow:0 1px 10px rgba(255,255,255,.92);
 }
 .work-cap .work-title{
@@ -71,7 +71,7 @@
 
 /* Karan Products だけ写真が暗いので、白文字のまま残す */
 .work-card[href*="karan"]::before{
-  background:linear-gradient(180deg, rgba(22,20,17,.5), rgba(22,20,17,0));
+  background:linear-gradient(180deg, rgba(25,45,44,.5), rgba(25,45,44,0));
 }
 .work-card[href*="karan"] .work-cap,
 .work-card[href*="karan"] .work-cap .work-title,
@@ -109,7 +109,7 @@
   display:block; margin:0 0 .5rem;
   font-size:clamp(.62rem, .95vw, .72rem);
   letter-spacing:.26em; text-transform:uppercase;
-  color:#6B655C;
+  color:#456D6C;
   font-family:"Noto Sans JP","Yu Gothic",sans-serif;
 }
 .work-card[href*="karan"] .work-cap .work-kind{ color:rgba(255,255,255,.82); }

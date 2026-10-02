@@ -3,8 +3,8 @@
   /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
   --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
 
-  --paper:#F6F2EA; --paper-2:#EFE9DD; --ink:#26231F; --ink-soft:#6B655C;
-  --accent:#F2C9A5; --accent-ink:#A05F26; --line:#E2DBCE; --max:760px;
+  --paper:#EDEFEA; --paper-2:#EDEFEA; --ink:#314E4D; --ink-soft:#456D6C;
+  --accent:#90B9B8; --accent-ink:#456D6C; --line:#C9DAD7; --max:760px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -17,7 +17,7 @@ img{max-width:100%;display:block}
 
 /* header */
 header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-  padding:18px 28px;background:rgba(246,242,234,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  padding:18px 28px;background:rgba(237,239,234,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .word{display:flex;flex-direction:column;line-height:1}
 .word .ja{font-family:var(--font);font-size:1.2rem;letter-spacing:.18em}
 .word .la{font-family:var(--font);font-weight:400;font-size:.52rem;letter-spacing:.32em;color:var(--ink-soft);margin-top:5px}
@@ -54,7 +54,7 @@ header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-
 .work-foot{border-top:1px solid var(--line);padding:50px 0;text-align:center}
 .work-foot a{font-family:var(--font);letter-spacing:.14em;border-bottom:1px solid var(--accent);
   color:var(--accent-ink);padding-bottom:3px}
-footer.site{background:var(--ink);color:#B8B1A6;text-align:center;padding:40px 0;font-size:.75rem;letter-spacing:.06em}
+footer.site{background:var(--ink);color:#4F7D7C;text-align:center;padding:40px 0;font-size:.75rem;letter-spacing:.06em}
 
 @media(max-width:900px){
   .work-hero img,.work-hero .ph{height:50vh}

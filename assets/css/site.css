@@ -8,20 +8,20 @@
   /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
   --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
 
-  --white:       #FAFAF8;
-  --off-white:   #F5F3EF;
-  --aqua-100:    #FBF0E4;
-  --aqua-200:    #F7DCC4;
-  --aqua-400:    #F2C9A5;
-  --aqua-600:    #A05F26;
-  --pink-100:    #FBF0EE;
-  --pink-200:    #F5D9D4;
-  --pink-400:    #E8A89E;
-  --sand-100:    #F3EDE4;
-  --sand-300:    #C8BAA8;
-  --ink:         #2A2723;
-  --ink-light:   #5A534B;
-  --ink-muted:   #9A9289;
+  --white:       #EDEFEA;
+  --off-white:   #EDEFEA;
+  --aqua-100:    #DCEEEA;
+  --aqua-200:    #C9DAD7;
+  --aqua-400:    #90B9B8;
+  --aqua-600:    #456D6C;
+  --pink-100:    #DCEEEA;
+  --pink-200:    #C9DAD7;
+  --pink-400:    #90B9B8;
+  --sand-100:    #EDEFEA;
+  --sand-300:    #C9DAD7;
+  --ink:         #314E4D;
+  --ink-light:   #456D6C;
+  --ink-muted:   #4F7D7C;
 
   --font-serif:  var(--font);
   --font-sans:   var(--font);
@@ -32,8 +32,8 @@
   --radius-lg:   24px;
   --radius-full: 999px;
 
-  --shadow-soft: 0 4px 24px rgba(42,39,35,0.07);
-  --shadow-card: 0 2px 16px rgba(42,39,35,0.09);
+  --shadow-soft: 0 4px 24px rgba(49,78,77,0.07);
+  --shadow-card: 0 2px 16px rgba(49,78,77,0.09);
 
   --max-width:   1100px;
   --gutter:      clamp(1.25rem, 5vw, 3rem);
@@ -306,7 +306,7 @@ a.lang-btn:hover { color: var(--aqua-600); }
 
   /* Dark header mobile nav always light bg */
   .site-header.is-dark .site-nav {
-    background: rgba(42, 39, 35, 0.97);
+    background: rgba(49,78,77, 0.97);
     border-bottom-color: rgba(255,255,255,0.1);
   }
   .site-header.is-dark .site-nav a {
@@ -450,7 +450,7 @@ body.is-fullpage {
 
 /* Counter — bottom-left on white area */
 .fp-work .fp-counter {
-  color: rgba(42, 39, 35, 0.35);
+  color: rgba(49,78,77, 0.35);
 }
 .fp-work .fp-counter em {
   color: var(--ink-light);
@@ -458,7 +458,7 @@ body.is-fullpage {
 
 /* Down arrow — on white, dark tint */
 .fp-work .fp-down-arrow {
-  color: rgba(42, 39, 35, 0.3);
+  color: rgba(49,78,77, 0.3);
 }
 
 /* Hide dot navigation */
@@ -543,7 +543,7 @@ body.is-fullpage {
   animation: arrowBounce 2.2s ease-in-out infinite;
 }
 .fp-hero .fp-down-arrow {
-  color: rgba(42, 39, 35, 0.35);
+  color: rgba(49,78,77, 0.35);
 }
 @keyframes arrowBounce {
   0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.45; }
@@ -567,7 +567,7 @@ body.is-fullpage {
   height: 7px;
   border-radius: 50%;
   border: none;
-  background: rgba(42, 39, 35, 0.25);
+  background: rgba(49,78,77, 0.25);
   cursor: pointer;
   transition: background var(--transition), transform var(--transition);
   padding: 0;
@@ -579,7 +579,7 @@ body.is-fullpage {
 
 /* Light dots: hero section (dark dots on light bg) */
 .fp-dots.is-light .fp-dot {
-  background: rgba(42, 39, 35, 0.25);
+  background: rgba(49,78,77, 0.25);
 }
 .fp-dots.is-light .fp-dot.is-active {
   background: var(--ink);
@@ -801,9 +801,9 @@ body.is-fullpage {
   inset: 0;
   /* 写真を隠さず、下だけ淡くして文字を載せる（2026-09-08） */
   background: linear-gradient(to top,
-              rgba(250,248,245,0.95) 0%,
-              rgba(250,248,245,0.80) 34%,
-              rgba(250,248,245,0.00) 68%);
+              rgba(237,239,234,0.95) 0%,
+              rgba(237,239,234,0.80) 34%,
+              rgba(237,239,234,0.00) 68%);
   display: flex;
   align-items: flex-end;
   padding: 2rem 2.25rem;
@@ -838,14 +838,14 @@ body.is-fullpage {
   line-height: 1.4;
   color: var(--ink);
   margin-bottom: 0.5rem;
-  text-shadow: 0 1px 8px rgba(250,248,245,0.9);
+  text-shadow: 0 1px 8px rgba(237,239,234,0.9);
 }
 .work-meta {
   font-size: 0.88rem;
   color: var(--ink-muted);
   letter-spacing: 0.05em;
   margin-bottom: 0.9rem;
-  text-shadow: 0 1px 6px rgba(250,248,245,0.9);
+  text-shadow: 0 1px 6px rgba(237,239,234,0.9);
 }
 .work-link {
   display: inline-flex;
