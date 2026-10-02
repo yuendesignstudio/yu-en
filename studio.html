@@ -15,8 +15,8 @@
   /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
   --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
 
-    --paper:#F6F2EA; --paper-2:#EFE9DD; --ink:#26231F; --ink-soft:#6B655C;
-    --accent:#F2C9A5; --accent-ink:#A05F26; --line:#E2DBCE; --max:1080px;
+    --paper:#EDEFEA; --paper-2:#EDEFEA; --ink:#314E4D; --ink-soft:#456D6C;
+    --accent:#90B9B8; --accent-ink:#456D6C; --line:#C9DAD7; --max:1080px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -32,7 +32,7 @@
 
   header{position:fixed;top:0;left:0;width:100%;z-index:50;display:flex;align-items:center;
     justify-content:space-between;padding:20px 32px;transition:background .5s}
-  header.solid{background:rgba(246,242,234,.88);backdrop-filter:blur(8px)}
+  header.solid{background:rgba(237,239,234,.88);backdrop-filter:blur(8px)}
   .word{display:flex;flex-direction:column;line-height:1}
   .word .ja{font-family:var(--font);font-size:1.3rem;letter-spacing:.18em}
   .word .la{font-family:var(--font);font-weight:400;font-size:.56rem;letter-spacing:.34em;
@@ -44,7 +44,7 @@
   .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
   .hero-bg{position:absolute;inset:0;background:url('images/brand/yuen-header.jpg') center/cover;opacity:.06}
   .hero-bg::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(246,242,234,.5),var(--paper) 82%)}
+    background:linear-gradient(180deg,rgba(237,239,234,.5),var(--paper) 82%)}
   .hero .wrap{position:relative;z-index:2;width:100%;padding-top:56px;padding-bottom:80px;
     display:grid;grid-template-columns:1.05fr .8fr;gap:56px;align-items:center}
   .hero .label{margin-bottom:32px}
@@ -97,7 +97,7 @@
   .t-yuge{background:linear-gradient(135deg,#7FAAB0,#4E7883)}
   .t-thesis{background:linear-gradient(135deg,#8B97A0,#57626B)}
   .t-shinjuku{background:linear-gradient(135deg,#B0A187,#7C6C50)}
-  .t-karan{background:linear-gradient(135deg,#C0A07C,#8A6540)}
+  .t-karan{background:linear-gradient(135deg,#90B9B8,#8A6540)}
   .t-house{background:linear-gradient(135deg,#7FA9A0,#547E77)}
   .works .names h3{font-size:1.18rem;font-weight:400;letter-spacing:.03em}
   .works .names .enname{font-family:var(--font);font-style:italic;
@@ -172,16 +172,16 @@
   footer{background:var(--ink);color:var(--paper);padding:70px 0 38px;font-size:.85rem}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
   footer h4{font-family:var(--font);letter-spacing:.12em;font-size:1.05rem;margin-bottom:16px}
-  footer ul{list-style:none} footer li{margin-bottom:10px;color:#B8B1A6}
+  footer ul{list-style:none} footer li{margin-bottom:10px;color:#4F7D7C}
   footer a:hover{color:var(--accent)}
   .brands a{display:block;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
-  .brands strong{font-weight:400}.brands .sub{font-size:.72rem;color:#8E877C;display:block}
+  .brands strong{font-weight:400}.brands .sub{font-size:.72rem;color:#4F7D7C;display:block}
   /* Follow はアイコンを横並びに（2026-09-09） */
   .sns-row{display:flex;align-items:center;gap:22px;margin-top:2px}
-  .sns-row a{color:#B8B1A6;transition:color .3s;line-height:0}
+  .sns-row a{color:#4F7D7C;transition:color .3s;line-height:0}
   .sns-row a:hover{color:var(--paper)}
   .sns-row svg{display:block}
-  .copy{text-align:center;color:#8E877C;font-size:.72rem;padding-top:26px;
+  .copy{text-align:center;color:#4F7D7C;font-size:.72rem;padding-top:26px;
     border-top:1px solid rgba(255,255,255,.12);letter-spacing:.08em}
 
   /* ══ 画面幅への対応 ═══════════════════════════════════
@@ -302,7 +302,7 @@
     .contact .btn{display:table;margin-left:auto;margin-right:auto}
   }
 </style>
-  <link rel="stylesheet" href="assets/css/header.css?v=2">
+  <link rel="stylesheet" href="assets/css/header.css?v=3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="YU-EN DESIGN STUDIO">
 <meta property="og:title" content="YU-EN DESIGN STUDIO ｜ 世話する建築">
@@ -311,7 +311,7 @@
 <meta property="og:image" content="https://yuendesignstudio.github.io/yu-en/images/brand/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="assets/css/footer.css?v=1">
+  <link rel="stylesheet" href="assets/css/footer.css?v=2">
 </head>
 <body>
 
