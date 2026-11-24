@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-YU-EN Design Studio ｜ 作品ページと作品一覧を組み立てる
+ユエンデザインスタジオ ｜ 作品ページと作品一覧を組み立てる
 
 つかいかた
   1. images/works/<slug>/ に写真を入れる（hero.jpg / 01.jpg 02.jpg …）
@@ -51,15 +51,15 @@ def page(w):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{E(t)} ｜ YU-EN Design Studio</title>
+<title>{E(t)} ｜ ユエンデザインスタジオ</title>
 <meta name="description" content="{E(w['lead'])}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- ★ 筑紫ゴシックのWebフォント（Adobe Fonts）を使う場合は、ここに kit の1行を貼ってください -->
 <!-- <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css"> -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/work.css">
-<link rel="stylesheet" href="../assets/css/header.css">
+<link rel="stylesheet" href="../assets/css/work.css?v=b2">
+<link rel="stylesheet" href="../assets/css/header.css?v=4">
 </head>
 <body>
 <!-- このページは _data/works.json から自動生成されています。
@@ -68,8 +68,7 @@ def page(w):
 <header class="site-header">
   <div class="header-inner">
     <a href="../index.html" class="logo">
-      <span class="logo-ja">YU-EN</span>
-      <span class="logo-en">DESIGN STUDIO</span>
+      <span class="logo-ja logo-one">ユエンデザインスタジオ</span>
     </a>
     <div class="header-right">
     <nav class="site-nav" id="site-nav">
@@ -110,7 +109,7 @@ def page(w):
 </div>
 
 <div class="work-foot"><a href="../index.html#works">← 作品一覧へ戻る</a></div>
-<footer class="site">© 2026 YU-EN Design Studio ／ 湯縁</footer>
+<footer class="site">© 2026 ユエンデザインスタジオ ／ 湯縁</footer>
 </body>
 </html>
 """
