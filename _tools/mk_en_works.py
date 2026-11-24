@@ -37,7 +37,7 @@ EN = {
    desc="A proposal for a building for the &ldquo;Master,&rdquo; the head of a college at the University of Cambridge. The Master&#39;s life and the students&#39; daily life intertwine like a double helix.",
    ps=["A proposal for a building for the head of a college at the University of Cambridge, who is called the &ldquo;Master.&rdquo; This space, usually little used, is made into a place students can use every day, and planned so that it intertwines with the Master&#39;s life like a double helix.",
        "The central garden is a space where plays can be performed. In the outdoor squares of Cambridge, Shakespeare&#39;s plays are staged. As in <em>A Midsummer Night&#39;s Dream</em>, where ranks are turned upside down, the relationship between the Master and the students is turned upside down, by day and by night. The project asks whether such a relationship could be made."],
-   note="The images were made by combining my own CG with generative AI."),
+   note=None),
  "recycle-station": dict(h1="Recycle Station", sub=None, cat="Competition · Design competition",
    meta="11th Hulic Student Idea Competition / One of 10 selected entries",
    desc="Reusing the waste of everyday life and turning it into space. A student idea competition entry for a site in Shinjuku.",
@@ -51,7 +51,7 @@ EN = {
  "wooden-bridge-reconnect": dict(h1="Wooden Bridge Reconnect", sub=None, cat="Competition · Design competition",
    meta="Rekishiteki Kukan Saihen Competition / One of 30 selected entries",
    desc="A proposal for a skin that connects Azuma Bridge in Asakusa to the future once more.",
-   ps=["I designed a skin for connecting the historic Azuma Bridge in Asakusa to the future once more. The proposal was submitted to the Rekishiteki Kukan Saihen Competition (historical space reorganization competition) and selected as one of 30 entries."], note=None),
+   ps=["I designed a skin for connecting the historic Azuma Bridge in Asakusa to the future once more. The proposal was submitted to the Rekishiteki Kukan Saihen Competition (a competition for reorganizing historic space) and selected as one of 30 entries."], note=None),
 }
 HEADER = '''<header class="site-header">
   <div class="header-inner">
@@ -133,3 +133,21 @@ for slug, e in EN.items():
     assert enidx.count(b) == 1, slug
     print('ok', slug, len(s))
 open(os.path.join(root, 'en/index.html'), 'w', encoding='utf-8').write(enidx)
+
+# ── 英語の About（en/studio.html）の作品の一覧：日本語の studio.html の並び・写真に合わせて作り直す ──
+ST = {"進行中 ・ 自邸": "In progress · Own home", "Architecture ・ 2024": "Architecture · 2024", "進行中 ・ 住宅": "In progress · House",
+      "実験小屋": "Experimental hut", "フォリー": "Folly", "進行中 ・ プロダクト": "In progress · Product",
+      "自主計画": "Self-initiated project", "Competition": "Competition"}
+jp = open(os.path.join(root, 'studio.html'), encoding='utf-8').read()
+items = re.findall(r'<a class="item" href="works/([a-z\-]+)\.html">\s*<div class="plate"><img src="([^"]+)" alt="[^"]*"></div>.*?<span class="st">(.*?)</span>\s*</a>', jp, re.S)
+assert len(items) == len(EN), len(items)
+rows = []
+for slug, img, st in items:
+    e = EN[slug]; sub = e['sub']; ja = bool(sub and re.search(r'[^\x00-\x7f]', sub))   # 副題（日本語の題は lang="ja"）
+    rows.append('      <a class="item" href="works/%s.html">\n        <div class="plate"><img src="../%s" alt="%s"></div>\n        <div class="names">\n          <h3>%s%s</h3>\n          <p>%s</p>\n        </div>\n        <span class="st">%s</span>\n      </a>\n'
+                % (slug, img, e['h1'], e['h1'], ('　<span class="enname"%s>%s</span>' % (' lang="ja"' if ja else '', sub)) if sub else '', e['desc'], ST[st]))
+p = os.path.join(root, 'en/studio.html'); s = open(p, encoding='utf-8').read()
+new = '<div class="list">\n      <!-- WORKS-EN:start（_tools/mk_en_works.py が作る。直接は直さない） -->\n' + ''.join(rows) + '      <!-- WORKS-EN:end -->\n    </div>'
+m = one(r'(<section class="works" id="works">.*?)<div class="list">.*?</a>\s*(?:<!-- WORKS-EN:end -->\s*)?</div>(\s*</div>\s*</section>)', s)
+s = s[:m.start()] + m.group(1) + new + m.group(2) + s[m.end():]
+open(p, 'w', encoding='utf-8').write(s); print('ok en/studio.html list', len(rows))
