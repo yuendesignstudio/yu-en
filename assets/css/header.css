@@ -10,7 +10,7 @@
   display:block !important; padding:0 !important; height:auto !important;
   justify-content:initial !important; align-items:initial !important;
   position:sticky; top:0; left:0; width:100%; z-index:60;
-  background:rgba(237,239,234,.94);
+  background:rgba(241,247,242,.94);
   -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
   border-bottom:1px solid #C9DAD7;
 }
@@ -95,3 +95,7 @@
 /* 見出しを外したぶん、作品一覧の上を少しだけ空ける（works-top-space） */
 .works .section-inner{ padding-top:48px; }
 @media (max-width:640px){ .works .section-inner{ padding-top:28px; } }
+
+/* 2026-11-24：日本語の名乗りは分けずに 1 行で（英語版は YU-EN ／ DESIGN STUDIO の 2 段のまま） */
+.site-header .logo .logo-one{ font-size:1.02rem; letter-spacing:.16em; white-space:nowrap; line-height:1.6; }
+@media (max-width:640px){ .site-header .logo .logo-one{ font-size:.94rem; letter-spacing:.14em; } }

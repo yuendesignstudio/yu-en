@@ -8,16 +8,16 @@
   /* 全文 FOT-筑紫ゴシックStd で統一（未導入の環境では Noto Sans JP に落ちる） */
   --font:"FOT-筑紫ゴシック Std","FOT-TsukuGoStd","Tsukushi A Gothic","筑紫ゴシック","Tsukushi Gothic","Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
 
-  --white:       #EDEFEA;
-  --off-white:   #EDEFEA;
-  --aqua-100:    #DCEEEA;
+  --white:       #F1F7F2;
+  --off-white:   #F1F7F2;
+  --aqua-100:    #F1F7F2;
   --aqua-200:    #C9DAD7;
   --aqua-400:    #90B9B8;
   --aqua-600:    #456D6C;
-  --pink-100:    #DCEEEA;
+  --pink-100:    #F1F7F2;
   --pink-200:    #C9DAD7;
   --pink-400:    #90B9B8;
-  --sand-100:    #EDEFEA;
+  --sand-100:    #F1F7F2;
   --sand-300:    #C9DAD7;
   --ink:         #314E4D;
   --ink-light:   #456D6C;
@@ -142,7 +142,7 @@ h1, h2, h3 {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(250, 250, 248, 0.88);
+  background: rgba(241,247,242, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--aqua-100);
@@ -293,7 +293,7 @@ a.lang-btn:hover { color: var(--aqua-600); }
     display: none;
     position: absolute;
     top: 64px; left: 0; right: 0;
-    background: rgba(250, 250, 248, 0.97);
+    background: rgba(241,247,242, 0.97);
     border-bottom: 1px solid var(--aqua-100);
     padding: 1.5rem var(--gutter);
   }
@@ -801,9 +801,9 @@ body.is-fullpage {
   inset: 0;
   /* 写真を隠さず、下だけ淡くして文字を載せる（2026-09-08） */
   background: linear-gradient(to top,
-              rgba(237,239,234,0.95) 0%,
-              rgba(237,239,234,0.80) 34%,
-              rgba(237,239,234,0.00) 68%);
+              rgba(241,247,242,0.95) 0%,
+              rgba(241,247,242,0.80) 34%,
+              rgba(241,247,242,0.00) 68%);
   display: flex;
   align-items: flex-end;
   padding: 2rem 2.25rem;
@@ -838,14 +838,14 @@ body.is-fullpage {
   line-height: 1.4;
   color: var(--ink);
   margin-bottom: 0.5rem;
-  text-shadow: 0 1px 8px rgba(237,239,234,0.9);
+  text-shadow: 0 1px 8px rgba(241,247,242,0.9);
 }
 .work-meta {
   font-size: 0.88rem;
   color: var(--ink-muted);
   letter-spacing: 0.05em;
   margin-bottom: 0.9rem;
-  text-shadow: 0 1px 6px rgba(237,239,234,0.9);
+  text-shadow: 0 1px 6px rgba(241,247,242,0.9);
 }
 .work-link {
   display: inline-flex;
@@ -1223,7 +1223,7 @@ body.is-fullpage {
 .work-detail-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(250,250,248,0.95) 0%, rgba(250,250,248,0.4) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(241,247,242,0.95) 0%, rgba(241,247,242,0.4) 60%, transparent 100%);
 }
 .work-detail-hero-content {
   position: relative;

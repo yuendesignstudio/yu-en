@@ -1,26 +1,26 @@
 /* ==========================================================
-   YU-EN DESIGN STUDIO ｜ 共通フッター（2026-09-09）
+   YU-EN DESIGN STUDIO ｜ 共通フッター（2026-09-09／2026-11-24 下地をスノーホワイトに）
    全ページで同じ形にするための1枚。各ページのCSSより後に読む。
    ========================================================== */
-.yfoot{background:#4F7D7C;color:rgba(255,255,255,.9);padding:70px 0 38px;
+.yfoot{background:#F1F7F2;color:#456D6C;border-top:1px solid #C9DAD7;padding:70px 0 38px;
   font-size:.85rem;line-height:2;letter-spacing:.03em;text-align:left}
 .yfoot-inner{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem)}
 .yfoot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:44px;margin-bottom:46px}
 .yfoot h4{font-size:1.05rem;font-weight:400;letter-spacing:.12em;
-  color:#FFFFFF;margin:0 0 16px;font-style:normal}
+  color:#314E4D;margin:0 0 16px;font-style:normal}
 .yfoot p{margin:0}
-.yfoot-brand p{color:rgba(255,255,255,.9);max-width:24em}
-.yfoot-brands a{display:block;padding:12px 0;color:#FFFFFF;text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.3);transition:opacity .3s}
+.yfoot-brand p{color:#456D6C;max-width:24em}
+.yfoot-brands a{display:block;padding:12px 0;color:#314E4D;text-decoration:none;
+  border-bottom:1px solid #C9DAD7;transition:opacity .3s}
 .yfoot-brands a:hover{opacity:.75}
 .yfoot-brands strong{font-weight:400}
-.yfoot-brands span{display:block;font-size:.72rem;color:rgba(255,255,255,.8);line-height:1.7}
+.yfoot-brands span{display:block;font-size:.72rem;color:#456D6C;line-height:1.7}
 .yfoot-sns{display:flex;align-items:center;gap:22px;margin-top:2px}
-.yfoot-sns a{color:rgba(255,255,255,.9);transition:color .3s;line-height:0;display:block}
-.yfoot-sns a:hover{color:#FFFFFF}
+.yfoot-sns a{color:#456D6C;transition:color .3s;line-height:0;display:block}
+.yfoot-sns a:hover{color:#314E4D}
 .yfoot-sns svg{display:block}
-.yfoot-copy{text-align:center;color:rgba(255,255,255,.8);font-size:.72rem;
-  padding-top:26px;border-top:1px solid rgba(255,255,255,.3)}
+.yfoot-copy{text-align:center;color:#456D6C;font-size:.72rem;
+  padding-top:26px;border-top:1px solid #C9DAD7}
 @media(max-width:860px){ .yfoot-grid{grid-template-columns:1.4fr 1fr;gap:36px} }
 @media(max-width:640px){
   .yfoot{padding:56px 0 30px}
