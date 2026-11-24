@@ -7,10 +7,10 @@ import re, sys, os, html
 root = sys.argv[1]
 SITE = "YU-EN DESIGN STUDIO"
 EN = {
- "ekoda-house": dict(h1="Room above Ekoda-yu", sub="銭湯上の住戸", cat="Architecture · Own home",
+ "ekoda-house": dict(h1="Room above Sento", sub="銭湯上の住戸", cat="Architecture · Own home",
    meta="Self-built renovation / Nerima, Tokyo / In progress",
    desc="A room above the bathhouse, rebuilt little by little with my own hands. An experimental home the designer lives in while tending it day by day. The starting point of everything.",
-   ps=["I am rebuilding, little by little and with my own hands, a room above Ekoda-yu, my family&#39;s sento (public bathhouse). The designer becomes the resident: cleaning, repainting, tending the room season by season. The more care it is given, the more the room slowly becomes my own place. That process itself is the starting point of YU-EN DESIGN STUDIO&#39;s &ldquo;architecture to tend.&rdquo;"],
+   ps=["I am rebuilding, little by little and with my own hands, a room above my family&#39;s sento (public bathhouse). The designer becomes the resident: cleaning, repainting, tending the room season by season. The more care it is given, the more the room slowly becomes my own place. That process itself is the starting point of YU-EN DESIGN STUDIO&#39;s &ldquo;architecture to tend.&rdquo;"],
    note="A life lived alongside water and wood, and the presence of steam. Without hurrying toward completion, I keep a record of it as an experimental home that I go on working on while living in it."),
  "inoue-house": dict(h1="Inoue House", sub="井上さんの家", cat="Architecture · House renovation",
    meta="House renovation / In progress",
