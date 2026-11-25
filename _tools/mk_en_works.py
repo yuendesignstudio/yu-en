@@ -29,7 +29,7 @@ EN = {
  "kide": dict(h1="KIDE", sub="Outdoor Timber Stage, Finland", cat="Architecture · Finland",
    meta="Kuhmo, Finland / 2024 / 74 m&sup2; / Aalto University Wood Program",
    desc="An outdoor timber stage in Kuhmo, Finland. Designed and built in the Aalto University Wood Program. Architizer A+Awards Popular Winner; featured on ArchDaily.",
-   ps=["An outdoor timber stage standing in the forest of Kuhmo, Finland. As a member of the Aalto University Wood Program, I worked on it from design through construction. Using local wood, in an environment of snow and light, it aims to be a place for gathering, and for returning once more to the forest.",
+   ps=["An outdoor timber stage standing in the town of Kuhmo, Finland. As a member of the Aalto University Wood Program, I worked on it from design through construction. Using local wood, in an environment of snow and light, it aims to be a place for gathering, and for returning once more to the forest.",
        "The timber structure, which recalls a crystal (kide), changes color over time in Finland&#39;s harsh climate and lives on while being cared for. It is a project in which the cycle of wood as a material connects directly with the thinking of &ldquo;water and wood&rdquo; that YU-EN DESIGN STUDIO values."],
    note="Architizer A+Awards &mdash; Popular Winner / Cultural Pavilions (2025). Featured on ArchDaily (May 2025) and architecturephoto.net (September 2025)."),
  "masters-lodge": dict(h1="Master&#39;s Lodge", sub=None, cat="Architecture · Proposal",
