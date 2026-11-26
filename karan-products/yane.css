@@ -90,3 +90,16 @@
 .yane-entry .yane-pair { gap: 2px; }
 @media (max-width: 860px) { .yane-items--2 { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .yane-pair { grid-template-columns: 1fr; } .yane-entry .yane-pair { grid-template-columns: 1fr 1fr; } }
+
+/* 2026-11-26：八つの屋根を続けて並べる */
+.yane-items--8 { grid-template-columns: repeat(4, 1fr); gap: 48px 28px; }
+.yane-items--8 .yane-item-name { font-size: 24px; margin-top: 16px; }
+.yane-items--8 .yane-item-text { font-size: 12.5px; line-height: 1.9; margin-top: 10px; }
+@media (max-width: 800px) { .yane-items--8 { grid-template-columns: repeat(2, 1fr); gap: 44px 20px; } }
+@media (max-width: 860px) { .yane-items--8 .yane-item-img { max-width: none; } }
+@media (max-width: 480px) {
+  .yane-items--8 { gap: 36px 12px; }
+  .yane-items--8 .yane-item-name { font-size: 20px; margin-top: 12px; }
+  .yane-items--8 .yane-item-ja { letter-spacing: 0.12em; }
+  .yane-items--8 .yane-item-text { font-size: 12px; }
+}
