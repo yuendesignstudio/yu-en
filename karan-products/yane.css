@@ -103,3 +103,24 @@
   .yane-items--8 .yane-item-ja { letter-spacing: 0.12em; }
   .yane-items--8 .yane-item-text { font-size: 12px; }
 }
+
+/* 2026-11-26：トップで YANE を主役に */
+.yane-main-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--bg); }
+.yane-main-text { display: grid; grid-template-columns: 1fr 1.6fr; gap: 40px; margin-top: 28px; align-items: start; }
+.yane-main-name { font-family: var(--serif); font-weight: 400; font-size: 44px; letter-spacing: 0.08em; line-height: 1.1; }
+.yane-strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; margin-top: 44px; }
+.yane-strip-item { display: block; }
+.yane-strip-item img { width: 100%; height: auto; display: block; background: var(--bg); }
+.yane-strip-item:hover img { opacity: 0.85; }
+.yane-strip-name { display: block; font-family: var(--serif); font-size: 15px; letter-spacing: 0.05em; margin-top: 8px; }
+.yane-strip-ja { display: block; font-size: 10px; letter-spacing: 0.18em; color: var(--mid); margin-top: 2px; }
+@media (max-width: 860px) {
+  .yane-main-text { grid-template-columns: 1fr; gap: 16px; }
+  .yane-strip { grid-template-columns: repeat(4, 1fr); gap: 10px 8px; }
+}
+@media (max-width: 480px) {
+  .yane-main-name { font-size: 36px; }
+  .yane-strip-name { font-size: 12px; }
+  .yane-main-pair { grid-template-columns: 1fr; }
+  .yane-strip-ja { letter-spacing: 0.1em; }
+}
